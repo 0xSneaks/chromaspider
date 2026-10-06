@@ -117,6 +117,18 @@ deploys it with GitHub's official Pages actions.
 and choose **GitHub Actions**. Until then the workflow's deploy step fails and
 the demo URL returns 404.
 
+## Vercel
+
+The same demo can also be hosted on Vercel. `../vercel.json` builds it with
+`python3 site/build.py _site` and publishes `_site`. It also sends the same
+security headers as the real server: `Content-Security-Policy` (this time
+including `frame-ancestors`), `X-Content-Type-Options` and `Referrer-Policy`.
+A test keeps those headers identical to the server's.
+
+If the Vercel project is connected to this GitHub repo, every push gets a
+preview deployment and every push to `main` updates production. GitHub Pages
+and Vercel can both host the demo at the same time.
+
 ## Tests
 
 ```sh

@@ -44,3 +44,13 @@ def test_recorded_demo_crawl_is_consistent():
     assert len(pages) == len(graph["nodes"]) == len(crawl["pages"])
     assert all(n["url"].startswith("https://docs.chromaspider.test/") for n in graph["nodes"])
     assert data["markdown"].startswith("# Chromaspider crawl: https://docs.chromaspider.test/")
+
+
+def test_vercel_config_builds_demo_with_server_security_headers():
+    from chromaspider.server import CSP
+
+    cfg = json.loads((ROOT / "vercel.json").read_text())
+    assert cfg["buildCommand"] == "python3 site/build.py _site" and cfg["outputDirectory"] == "_site"
+    headers = {h["key"]: h["value"] for rule in cfg["headers"] for h in rule["headers"]}
+    assert headers["Content-Security-Policy"] == CSP
+    assert headers["X-Content-Type-Options"] == "nosniff" and headers["Referrer-Policy"] == "no-referrer"
