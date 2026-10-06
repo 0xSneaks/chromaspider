@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07060d">
+<title>Chromaspider</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23b44dff'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%2300e5ff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="brand">
+  <h1 class="logo" aria-label="Chromaspider">CHROMASPIDER</h1>
+  <p class="tagline">Crawl the web. Follow the colors.</p>
+</header>
+
+<main>
+  <form id="crawl-form" class="panel" autocomplete="off">
+    <div class="url-row">
+      <input id="url" name="url" type="url" inputmode="url" placeholder="https://example.com" required aria-label="URL to crawl">
+      <button id="go" type="submit" class="btn-crawl">CRAWL</button>
+    </div>
+    <div class="controls">
+      <label>Depth <input id="depth" type="number" min="0" max="5" value="1"></label>
+      <label>Max pages <input id="max_pages" type="number" min="1" max="500" value="20"></label>
+      <label class="check"><input id="same_domain" type="checkbox" checked> Same domain</label>
+      <label>Rendering
+        <select id="render_mode">
+          <option value="http">HTTP only</option>
+          <option value="auto">Browser if available</option>
+          <option value="browser">Browser (falls back)</option>
+        </select>
+      </label>
+    </div>
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+  </form>
+
+  <section class="panel graph-panel">
+    <div class="graph-head">
+      <div id="summary" class="summary">No crawl yet.</div>
+      <div class="actions">
+        <button type="button" data-act="copy-md" disabled>COPY MARKDOWN</button>
+        <button type="button" data-act="copy-json" disabled>COPY JSON</button>
+        <a class="btn" id="dl-json" aria-disabled="true">DOWNLOAD JSON</a>
+        <a class="btn" id="dl-md" aria-disabled="true">DOWNLOAD MARKDOWN</a>
+      </div>
+    </div>
+    <ul class="legend">
+      <li><i class="dot ok"></i>extracted</li>
+      <li><i class="dot crawling"></i>crawling</li>
+      <li><i class="dot browser"></i>browser rendered</li>
+      <li><i class="dot skipped"></i>skipped</li>
+      <li><i class="dot redirected"></i>redirected</li>
+      <li><i class="dot failed"></i>failed / blocked</li>
+    </ul>
+    <svg id="graph" role="img" aria-label="Crawl graph" viewBox="-300 -300 600 600" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="3.5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <linearGradient id="edge" x1="0" x2="1">
+          <stop offset="0" stop-color="#b44dff"/><stop offset="1" stop-color="#00e5ff"/>
+        </linearGradient>
+      </defs>
+      <g id="edges"></g>
+      <g id="nodes"></g>
+    </svg>
+  </section>
+
+  <aside id="inspector" class="panel inspector" hidden>
+    <div class="insp-head">
+      <h2 id="i-title">Page</h2>
+      <button type="button" id="i-close" aria-label="Close inspector">✕</button>
+    </div>
+    <dl id="i-meta" class="meta"></dl>
+    <div class="insp-actions">
+      <button type="button" data-act="copy-page-md">COPY PAGE MARKDOWN</button>
+      <button type="button" data-act="copy-page-json">COPY PAGE JSON</button>
+    </div>
+    <details open><summary>Extracted Markdown</summary><pre id="i-md" class="md"></pre></details>
+    <details><summary>Outgoing links (<span id="i-nlinks">0</span>)</summary><ul id="i-links" class="links"></ul></details>
+  </aside>
+</main>
+
+<footer class="foot">Fetched content is untrusted and is shown as plain text only. Chromaspider never runs it.</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

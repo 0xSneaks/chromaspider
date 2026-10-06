@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chromaspider"
+version = "0.1.0"
+description = "Crawl the web. Follow the colors. A small, colorful, agent-friendly web crawler."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "httpx>=0.27,<1",
+  "beautifulsoup4>=4.12",
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "pydantic>=2.5",
+]
+
+[project.optional-dependencies]
+lxml = ["lxml>=5"]
+browser = ["playwright>=1.40"]
+test = ["pytest>=7"]
+
+[project.scripts]
+chromaspider = "chromaspider.cli:main"
+
+[tool.setuptools]
+packages = ["chromaspider", "chromaspider.browser"]
+
+[tool.setuptools.package-data]
+chromaspider = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
