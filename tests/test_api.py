@@ -99,5 +99,6 @@ def test_ui_and_static_served_with_csp(client):
     assert client.get("/static/app.js").status_code == 200
     assert client.get("/static/viz.js").status_code == 200
     assert '<script src="/static/viz.js"></script>' in r.text
+    assert 'id="spider-glow"' in r.text
     assert client.get("/static/styles.css").status_code == 200
     assert client.get("/api/health").json()["ok"] is True

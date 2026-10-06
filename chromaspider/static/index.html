@@ -59,6 +59,10 @@
           <feGaussianBlur stdDeviation="3.5" result="b"/>
           <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
+        <filter id="spider-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="1.6" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
         <linearGradient id="edge" x1="0" x2="1">
           <stop offset="0" stop-color="#b44dff"/><stop offset="1" stop-color="#00e5ff"/>
         </linearGradient>
