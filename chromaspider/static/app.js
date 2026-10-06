@@ -67,6 +67,7 @@
       if (sig !== state.sig) {
         state.sig = sig;
         draw(g);
+        wall.update(g);
         const c = g.counts || {};
         const parts = Object.entries(c).map(([k, v]) => `${k} ${v}`).join(" · ");
         $("#summary").textContent = `${g.status.toUpperCase()} · ${g.nodes.length} pages${parts ? " · " + parts : ""}`;
@@ -206,7 +207,9 @@
   function placeEdge(e) {
     const a = view.nodes.get(e.s), b = view.nodes.get(e.t);
     e.el.setAttribute("x1", a.x); e.el.setAttribute("y1", a.y);
-    e.el.setAttribute("x2", b.x); e.el.setAttribute("y2", b.y);
+    // A gradient stroke sized to the line's bounding box vanishes on perfectly flat/upright lines.
+    e.el.setAttribute("x2", Math.abs(a.x - b.x) < 0.01 ? b.x + 0.01 : b.x);
+    e.el.setAttribute("y2", Math.abs(a.y - b.y) < 0.01 ? b.y + 0.01 : b.y);
   }
 
   function retarget(v, now) {
@@ -405,6 +408,34 @@
       if (act === "copy-page-json" && state.page) await copy(JSON.stringify(state.page, null, 2));
     } catch (e) { say(e.message, true); }
   });
+
+  // ------------------------------------------------------------ views
+  const wall = window.ChromaspiderWall.create({
+    canvas: $("#wall"),
+    hud: { spiders: $("#hud-spiders"), pages: $("#hud-pages"), words: $("#hud-words") },
+    fetchPage: (cid, index) => api(`/api/crawls/${cid}/pages/${index}`),
+    onInspect: (index) => inspect(index),
+    reducedMotion,
+  });
+
+  const tabs = [$("#tab-wall"), $("#tab-graph")];
+  function selectTab(tab) {
+    for (const t of tabs) {
+      const on = t === tab;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    }
+  }
+  for (const t of tabs) {
+    t.addEventListener("click", () => selectTab(t));
+    t.addEventListener("keydown", (ev) => {
+      if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight") return;
+      const next = tabs[(tabs.indexOf(t) + 1) % tabs.length];
+      selectTab(next);
+      next.focus();
+    });
+  }
 
   // Reopen a crawl from the URL hash (e.g. after a reload).
   const fromHash = location.hash.slice(1);
