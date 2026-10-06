@@ -4,8 +4,13 @@
 
 A small, colorful, agent-friendly web crawler. It runs in Python with no
 Docker, Node, database or browser required. It outputs clean Markdown and
-JSON, has a live neon crawl graph in the browser, and blocks SSRF by default.
-It is built to run on an Android phone in Termux as well as on a desktop.
+JSON, has a live browser UI where neon spiders crawl each page's text next to a
+live crawl graph, and blocks SSRF by default. It is built to run on an Android
+phone in Termux as well as on a desktop.
+
+**[Try the live demo](https://0xsneaks.github.io/chromaspider/)**: the real UI
+replaying a recorded crawl, with nothing to install
+([how it works](site/README.md)).
 
 | Desktop | Phone-width |
 | --- | --- |
@@ -21,6 +26,8 @@ device.*
 | --- | --- |
 | HTTP crawler, CLI, API, web UI | working, tested |
 | JSON / Markdown export | working, tested |
+| Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation |
+| Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) |
 | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |
 | Desktop Linux | verified (clean venv install, tests, live crawl) |
 | macOS / Windows | expected to work (pure Python), **not tested** |
@@ -114,6 +121,10 @@ the tiles appear at once and no spiders are shown.
 
 <img src="docs/screenshot-crawl-view.png" alt="Crawl view with spiders on page tiles" width="300">
 
+**[Try the live demo](https://0xsneaks.github.io/chromaspider/)**. It runs this
+UI in your browser and replays a recorded crawl of an offline mock site built
+from these docs. It never crawls anything itself; the site is built from
+`site/` by `.github/workflows/pages.yml`.
 [Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in
 headless Chromium at iPhone 13 size against a local mock site.
 
@@ -219,9 +230,11 @@ chromaspider/
   storage.py      in-memory store + JSON files
   server.py       FastAPI app, security headers, static UI
   browser/        optional renderers: base (disabled), desktop (Playwright), termux (Chromium dump-dom)
-  static/         index.html, app.js, styles.css (no framework, no CDN)
-tests/            pytest suite (no network needed)
+  static/         index.html, app.js, viz.js, wall.js, styles.css (no framework, no CDN)
+site/             GitHub Pages live demo: build script, replay shim, recorded crawl
+tests/            pytest suite (no network needed); tests/js/ holds Node UI tests
 examples/         API and library examples
+.github/workflows/pages.yml   builds and deploys the live demo
 ```
 
 Dependencies: `httpx`, `beautifulsoup4`, `fastapi`, `uvicorn`, `pydantic`.
@@ -235,4 +248,6 @@ pytest
 ```
 
 The tests use mocked transports and local servers, so they need no internet
-access.
+access. If Node.js is installed, `pytest` also runs the UI tests in
+`tests/js/`; you can run them directly with
+`node --test tests/js/viz.test.js tests/js/demo.test.js`.

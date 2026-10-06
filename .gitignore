@@ -8,3 +8,4 @@ dist/
 .chromaspider/
 crawl-*.json
 crawl-*.md
+_site/
