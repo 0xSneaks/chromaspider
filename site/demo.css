@@ -1,0 +1,13 @@
+/* GitHub Pages demo additions on top of the app's own styles.css. */
+.demo-banner {
+  max-width: 1100px; margin: -6px auto 16px; padding: 10px 14px; border-radius: 12px;
+  border: 1px solid rgba(255, 46, 151, 0.45); background: rgba(255, 46, 151, 0.08);
+  color: var(--text); font-size: 13px; text-align: center;
+}
+.demo-banner b { color: var(--pink); letter-spacing: 0.06em; }
+.demo-banner a, .install a { color: var(--cyan); }
+.install { max-width: 1100px; margin: 16px auto 0; }
+.install h2 { margin: 0 0 6px; font-size: 18px; color: var(--cyan); }
+.install h3 { margin: 14px 0 6px; font-size: 14px; color: var(--pink); }
+.install p { margin: 6px 0; color: var(--muted); font-size: 14px; }
+.install pre { margin: 0; overflow-x: auto; white-space: pre; font-size: 12px; line-height: 1.55; }

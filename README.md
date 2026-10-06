@@ -114,6 +114,10 @@ the tiles appear at once and no spiders are shown.
 
 <img src="docs/screenshot-crawl-view.png" alt="Crawl view with spiders on page tiles" width="300">
 
+**[Try the live demo](https://0xsneaks.github.io/chromaspider/)**. It runs this
+UI in your browser and replays a recorded crawl of an offline mock site built
+from these docs. It never crawls anything itself; the site is built from
+`site/` by `.github/workflows/pages.yml`.
 [Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in
 headless Chromium at iPhone 13 size against a local mock site.
 
