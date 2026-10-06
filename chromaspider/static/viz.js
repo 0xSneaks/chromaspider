@@ -6,7 +6,7 @@
 })(typeof self !== "undefined" ? self : this, () => {
   const POLL_RUNNING_MS = 100;   // live graph poll while a crawl is running
   const POLL_HIDDEN_MS = 1000;   // back off while the tab is in the background
-  const REPLAY_MS = 1000;        // client-side replay of a crawl that finished too fast to watch
+  const REPLAY_MS = 3000;        // client-side replay of a crawl that finished too fast to watch
   const FLASH_MS = 220;          // how long a replayed node shows as "crawling" before settling
   const TWEEN_MS = 380;          // node movement / spawn-from-parent duration
 

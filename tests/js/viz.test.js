@@ -42,7 +42,8 @@ test("replays only a finished crawl the UI mostly missed, never with reduced mot
   assert.equal(V.shouldReplay("failed", 10, 10, false), true);
 });
 
-test("replay schedule covers ~1s in breadth-first order", () => {
+test("replay schedule covers ~3s in breadth-first order", () => {
+  assert.equal(V.REPLAY_MS, 3000);
   const nodes = Array.from({ length: 25 }, (_, i) => node(i, i === 0 ? 0 : 1 + (i % 3)));
   const sched = V.replaySchedule(nodes);
   assert.equal(sched.length, 25);
