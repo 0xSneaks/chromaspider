@@ -104,8 +104,21 @@ query parameters are sorted.
 
 ## Web UI
 
-The live graph polls the API while a crawl runs. Each node is a page, and
-each line runs from parent to child.
+The **CRAWL** tab shows one tile per crawled page (up to 12), drawn from
+the page's extracted text as plain text. Stick spiders walk over the words
+and highlight the ones they "read". They multiply as pages arrive, then
+fade out when the crawl is done. The counter bar shows SPIDERS, PAGES and
+WORDS READ. Only PAGES is a crawl figure; the other two describe the
+animation. Tap a tile to inspect that page. With reduced motion turned on,
+the tiles appear at once and no spiders are shown.
+
+<img src="docs/screenshot-crawl-view.png" alt="Crawl view with spiders on page tiles" width="300">
+
+[Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in
+headless Chromium at iPhone 13 size against a local mock site.
+
+The **GRAPH** tab polls the API while a crawl runs. Each node is a page,
+and each line runs from parent to child.
 
 | Color | Meaning |
 | --- | --- |
