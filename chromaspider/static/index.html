@@ -53,15 +53,24 @@
       <li><i class="dot redirected"></i>redirected</li>
       <li><i class="dot failed"></i>failed / blocked</li>
     </ul>
+    <div class="view-tabs" role="tablist" aria-label="Crawl views">
+      <button type="button" role="tab" id="tab-wall" aria-selected="true" aria-controls="wall-view">CRAWL</button>
+      <button type="button" role="tab" id="tab-graph" aria-selected="false" aria-controls="graph-view" tabindex="-1">GRAPH</button>
+    </div>
+    <div id="wall-view" role="tabpanel" aria-labelledby="tab-wall">
+      <div class="hud" aria-hidden="true">
+        <div><span>SPIDERS</span><b id="hud-spiders" class="cyan">0</b></div>
+        <div><span>PAGES</span><b id="hud-pages">0</b></div>
+        <div><span>WORDS READ</span><b id="hud-words" class="pink">0</b></div>
+      </div>
+      <canvas id="wall" role="img" aria-label="Spiders crawling the extracted text of each crawled page. Tap a page to inspect it; the Graph tab lists every page."></canvas>
+    </div>
+    <div id="graph-view" role="tabpanel" aria-labelledby="tab-graph" hidden>
     <svg id="graph" role="img" aria-label="Crawl graph" viewBox="-300 -300 600 600" preserveAspectRatio="xMidYMid meet">
       <defs>
         <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
           <feGaussianBlur stdDeviation="3.5" result="b"/>
           <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <filter id="spider-glow" x="-60%" y="-60%" width="220%" height="220%">
-          <feGaussianBlur stdDeviation="1.6" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
         <linearGradient id="edge" x1="0" x2="1">
           <stop offset="0" stop-color="#b44dff"/><stop offset="1" stop-color="#00e5ff"/>
@@ -70,6 +79,7 @@
       <g id="edges"></g>
       <g id="nodes"></g>
     </svg>
+    </div>
   </section>
 
   <aside id="inspector" class="panel inspector" hidden>
@@ -89,6 +99,7 @@
 
 <footer class="foot">Fetched content is untrusted and is shown as plain text only. Chromaspider never runs it.</footer>
 <script src="/static/viz.js"></script>
+<script src="/static/wall.js"></script>
 <script src="/static/app.js"></script>
 </body>
 </html>
