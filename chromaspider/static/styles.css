@@ -119,19 +119,30 @@ button:disabled, .btn[aria-disabled="true"] { opacity: 0.4; pointer-events: none
 
 #graph { width: 100%; height: min(70vh, 640px); display: block; border-radius: 12px; background: radial-gradient(circle at center, rgba(180, 77, 255, 0.08), transparent 70%); touch-action: manipulation; }
 #edges line { stroke: url(#edge); stroke-opacity: 0.45; stroke-width: 1.2; }
-.node { cursor: pointer; }
-.node circle.hit { fill: transparent !important; stroke: none; animation: none; pointer-events: all; }
-.node circle { stroke: rgba(255, 255, 255, 0.7); stroke-width: 0; transition: r 0.2s; }
-.node.sel circle { stroke-width: 2.5; }
+#edges line.enter { animation: edge-in 0.4s ease-out both; }
+.node { cursor: pointer; --c: var(--gray); }
+.node.ok { --c: var(--lime); }
+.node.crawling { --c: var(--cyan); }
+.node.browser { --c: var(--violet); }
+.node.skipped { --c: var(--yellow); }
+.node.redirected { --c: var(--orange); }
+.node.failed { --c: var(--red); }
+.node .body, .node .core, .node .ring { transform-box: fill-box; transform-origin: center; }
+.node circle.hit { fill: transparent; stroke: none; pointer-events: all; }
+.node .core { fill: var(--c); stroke: rgba(255, 255, 255, 0.7); stroke-width: 0; transition: fill 0.45s ease, stroke-width 0.2s; }
+.node .ring { fill: none; stroke: var(--c); stroke-width: 2; opacity: 0; pointer-events: none; }
+.node.sel .core { stroke-width: 2.5; }
 .node text { fill: var(--muted); font-size: 9px; pointer-events: none; }
-.node.ok circle { fill: var(--lime); }
-.node.crawling circle { fill: var(--cyan); animation: pulse 0.9s ease-in-out infinite alternate; }
-.node.browser circle { fill: var(--violet); }
-.node.skipped circle { fill: var(--yellow); }
-.node.redirected circle { fill: var(--orange); }
-.node.failed circle { fill: var(--red); }
-.node.queued circle { fill: var(--gray); }
-@keyframes pulse { to { opacity: 0.45; } }
+.node.crawling .core { animation: core-pulse 0.45s ease-in-out infinite alternate; }
+.node.crawling .ring { animation: ring-pulse 0.9s ease-out infinite; }
+.node.settle .ring { animation: ring-settle 0.5s ease-out 1; }
+.node.enter .body { animation: node-in 0.42s cubic-bezier(0.2, 0.9, 0.3, 1.4) both; }
+.node.enter text { animation: edge-in 0.6s ease-out both; }
+@keyframes core-pulse { to { transform: scale(1.35); opacity: 0.7; } }
+@keyframes ring-pulse { from { transform: scale(1); opacity: 0.95; } to { transform: scale(3); opacity: 0; } }
+@keyframes ring-settle { from { transform: scale(1); opacity: 0.8; } to { transform: scale(2.4); opacity: 0; } }
+@keyframes node-in { from { transform: scale(0); opacity: 0; } }
+@keyframes edge-in { from { opacity: 0; } }
 
 .inspector { overflow-wrap: anywhere; }
 .insp-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
@@ -160,4 +171,4 @@ summary { cursor: pointer; color: var(--pink); font-weight: 600; }
   .actions > * { flex: 1 1 45%; justify-content: center; }
   #graph { height: 60vh; }
 }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

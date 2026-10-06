@@ -3,12 +3,15 @@
 (() => {
   const $ = (s) => document.querySelector(s);
   const SVG = "http://www.w3.org/2000/svg";
-  const state = { id: null, graph: null, selected: null, timer: null };
+  const V = window.ChromaspiderViz;
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reducedMotion = () => motionQuery.matches;
+  const state = { id: null, graph: null, selected: null, timer: null, sig: null };
 
   const form = $("#crawl-form"), msg = $("#message"), goBtn = $("#go");
 
   function say(text, isError = false) {
-    msg.textContent = text;
+    if (msg.textContent !== text) msg.textContent = text;  // avoid re-announcing on every poll
     msg.classList.toggle("error", isError);
   }
 
@@ -40,6 +43,7 @@
     try {
       const r = await api("/api/crawl", { method: "POST", body: JSON.stringify(body) });
       state.id = r.id;
+      state.sig = null;
       state.selected = null;
       $("#inspector").hidden = true;
       setExports(true);
@@ -54,16 +58,23 @@
   async function poll() {
     clearTimeout(state.timer);
     if (!state.id) return;
+    const id = state.id;
     try {
-      const g = await api(`/api/crawls/${state.id}/graph`);
+      const g = await api(`/api/crawls/${id}/graph`);
+      if (id !== state.id) return;  // a newer crawl started while this request was in flight
       state.graph = g;
-      draw(g);
-      const c = g.counts || {};
-      const parts = Object.entries(c).map(([k, v]) => `${k} ${v}`).join(" · ");
-      $("#summary").textContent = `${g.status.toUpperCase()} · ${g.nodes.length} pages${parts ? " · " + parts : ""}`;
-      if (g.status === "running") {
+      const sig = V.signature(g);
+      if (sig !== state.sig) {
+        state.sig = sig;
+        draw(g);
+        const c = g.counts || {};
+        const parts = Object.entries(c).map(([k, v]) => `${k} ${v}`).join(" · ");
+        $("#summary").textContent = `${g.status.toUpperCase()} · ${g.nodes.length} pages${parts ? " · " + parts : ""}`;
+      }
+      const delay = V.pollDelay(g.status, document.hidden);
+      if (delay !== null) {
         say("Crawling… follow the colors.");
-        state.timer = setTimeout(poll, 600);
+        state.timer = setTimeout(poll, delay);
       } else {
         say(g.status === "done" ? "Crawl finished. Tap a node to inspect it." : "Crawl failed.", g.status !== "done");
         goBtn.disabled = false;
@@ -120,47 +131,180 @@
     return pos;
   }
 
+  // Live view: node/edge elements persist across polls so state changes can transition, new nodes
+  // spawn from their parent and slide outward, and a crawl that finished too fast to watch is replayed.
+  const view = { crawl: null, nodes: new Map(), edges: new Map(), pending: new Map(), replayStart: 0,
+                 data: new Map(), parent: new Map(), pos: new Map(), big: false, raf: 0 };
+
+  function resetView(crawlId) {
+    cancelAnimationFrame(view.raf);
+    view.raf = 0;
+    $("#edges").replaceChildren();
+    $("#nodes").replaceChildren();
+    view.nodes.clear(); view.edges.clear(); view.pending.clear();
+    view.crawl = crawlId;
+  }
+
   function draw(g) {
-    const pos = layout(g);
-    const edges = $("#edges"), nodes = $("#nodes");
-    edges.replaceChildren();
-    nodes.replaceChildren();
-    const big = g.nodes.length > 60;
-    for (const e of g.edges) {
-      const a = pos.get(e.source), b = pos.get(e.target);
-      if (!a || !b) continue;
-      const l = document.createElementNS(SVG, "line");
-      l.setAttribute("x1", a.x); l.setAttribute("y1", a.y);
-      l.setAttribute("x2", b.x); l.setAttribute("y2", b.y);
-      edges.appendChild(l);
+    if (view.crawl !== g.id) resetView(g.id);
+    const now = performance.now();
+    view.pos = layout(g);
+    view.data = new Map(g.nodes.map((n) => [n.id, n]));
+    view.parent = new Map();
+    for (const e of g.edges) if (!view.parent.has(e.target)) view.parent.set(e.target, e.source);
+    view.big = g.nodes.length > 60;
+    for (const v of view.nodes.values()) {
+      const n = view.data.get(v.id);
+      if (!n) continue;
+      retarget(v, now);
+      decorate(v, n);
+      if (!v.flashUntil) setNodeState(v, n.state);
     }
-    for (const n of g.nodes) {
-      const p = pos.get(n.id) || { x: 0, y: 0 };
-      const grp = document.createElementNS(SVG, "g");
-      grp.setAttribute("class", `node ${n.state}${state.selected === n.id ? " sel" : ""}`);
-      grp.setAttribute("transform", `translate(${p.x},${p.y})`);
-      grp.setAttribute("tabindex", "0");
-      grp.setAttribute("role", "button");
-      const c = document.createElementNS(SVG, "circle");
-      c.setAttribute("r", n.depth === 0 ? 11 : big ? 5 : 7);
-      c.setAttribute("filter", "url(#glow)");
-      const hit = document.createElementNS(SVG, "circle");  // generous touch target
-      hit.setAttribute("class", "hit");
-      hit.setAttribute("r", 16);
-      const t = document.createElementNS(SVG, "title");
-      t.textContent = `${n.state.toUpperCase()} ${n.status ?? ""} ${n.url}`;
-      grp.append(hit, c, t);
-      if (!big) {
-        const label = document.createElementNS(SVG, "text");
-        label.setAttribute("x", 10); label.setAttribute("y", 3);
-        label.textContent = shortLabel(n);
-        grp.appendChild(label);
+    const unseen = g.nodes.filter((n) => !view.nodes.has(n.id) && !view.pending.has(n.id));
+    if (unseen.length) {
+      if (V.shouldReplay(g.status, g.nodes.length, unseen.length, reducedMotion())) {
+        view.replayStart = now;
+        for (const { id, at } of V.replaySchedule(unseen)) view.pending.set(id, at);
+      } else {
+        for (const n of V.revealOrder(unseen)) reveal(n, false, now);
       }
-      const open = () => inspect(n.id);
-      grp.addEventListener("click", open);
-      grp.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); open(); } });
-      nodes.appendChild(grp);
     }
+    kick();
+  }
+
+  function reveal(n, flash, now) {
+    const v = makeNode(n);
+    const p = view.pos.get(n.id) || { x: 0, y: 0 };
+    const from = view.nodes.get(view.parent.get(n.id));  // spawn at the parent, then crawl outward
+    v.x = v.fx = from ? from.x : p.x;
+    v.y = v.fy = from ? from.y : p.y;
+    v.tx = p.x; v.ty = p.y; v.t0 = now;
+    v.grp.setAttribute("transform", `translate(${v.x},${v.y})`);
+    decorate(v, n);
+    if (flash && n.state !== "crawling") { v.flashUntil = now + V.FLASH_MS; setNodeState(v, "crawling"); }
+    else setNodeState(v, n.state);
+    if (!reducedMotion()) v.grp.classList.add("enter");
+    v.grp.classList.toggle("sel", state.selected === n.id);
+    view.nodes.set(n.id, v);
+    $("#nodes").appendChild(v.grp);
+    for (const e of state.graph ? state.graph.edges : []) {
+      if (e.source === n.id || e.target === n.id) connect(e.source, e.target);
+    }
+  }
+
+  function connect(s, t) {
+    const key = `${s}>${t}`;
+    if (view.edges.has(key) || !view.nodes.has(s) || !view.nodes.has(t)) return;
+    const l = document.createElementNS(SVG, "line");
+    if (!reducedMotion()) l.setAttribute("class", "enter");
+    const edge = { s, t, el: l };
+    placeEdge(edge);
+    view.edges.set(key, edge);
+    $("#edges").appendChild(l);
+  }
+
+  function placeEdge(e) {
+    const a = view.nodes.get(e.s), b = view.nodes.get(e.t);
+    e.el.setAttribute("x1", a.x); e.el.setAttribute("y1", a.y);
+    e.el.setAttribute("x2", b.x); e.el.setAttribute("y2", b.y);
+  }
+
+  function retarget(v, now) {
+    const p = view.pos.get(v.id);
+    if (!p || (p.x === v.tx && p.y === v.ty)) return;
+    v.fx = v.x; v.fy = v.y; v.tx = p.x; v.ty = p.y; v.t0 = now;
+  }
+
+  function makeNode(n) {
+    const grp = document.createElementNS(SVG, "g");
+    grp.setAttribute("class", "node");
+    grp.setAttribute("tabindex", "0");
+    grp.setAttribute("role", "button");
+    const body = document.createElementNS(SVG, "g");  // scaled on entry; grp carries the position
+    body.setAttribute("class", "body");
+    const hit = document.createElementNS(SVG, "circle");  // generous touch target
+    hit.setAttribute("class", "hit");
+    hit.setAttribute("r", 16);
+    const ring = document.createElementNS(SVG, "circle");  // crawl pulse / settle burst
+    ring.setAttribute("class", "ring");
+    const core = document.createElementNS(SVG, "circle");
+    core.setAttribute("class", "core");
+    core.setAttribute("filter", "url(#glow)");
+    body.append(hit, ring, core);
+    const title = document.createElementNS(SVG, "title");
+    const label = document.createElementNS(SVG, "text");
+    label.setAttribute("x", 10); label.setAttribute("y", 3);
+    grp.append(body, title, label);
+    const open = () => inspect(n.id);
+    grp.addEventListener("click", open);
+    grp.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); open(); } });
+    grp.addEventListener("animationend", (ev) => {
+      if (ev.animationName === "node-in") grp.classList.remove("enter");
+      if (ev.animationName === "ring-settle") grp.classList.remove("settle");
+    });
+    return { id: n.id, grp, ring, core, title, label, shown: null, flashUntil: 0,
+             x: 0, y: 0, fx: 0, fy: 0, tx: 0, ty: 0, t0: null };
+  }
+
+  function decorate(v, n) {
+    const r = n.depth === 0 ? 11 : view.big ? 5 : 7;
+    v.core.setAttribute("r", r);
+    v.ring.setAttribute("r", r);
+    v.title.textContent = `${n.state.toUpperCase()} ${n.status ?? ""} ${n.url}`;
+    v.label.textContent = view.big ? "" : shortLabel(n);
+  }
+
+  function setNodeState(v, s) {
+    if (v.shown === s) return;
+    const prev = v.shown;
+    if (prev) v.grp.classList.remove(prev);
+    v.grp.classList.add(s);
+    v.shown = s;
+    // A finished page: core color transitions via CSS, and the ring bursts once in the new color.
+    if (prev && s !== "queued" && s !== "crawling" && !reducedMotion()) v.grp.classList.add("settle");
+  }
+
+  function markSelected() {
+    for (const v of view.nodes.values()) v.grp.classList.toggle("sel", v.id === state.selected);
+  }
+
+  function kick() {
+    if (!view.raf) view.raf = requestAnimationFrame(frame);
+  }
+
+  function frame(now) {
+    view.raf = 0;
+    let busy = false;
+    if (view.pending.size) {
+      const elapsed = now - view.replayStart;
+      for (const [id, at] of view.pending) {
+        if (at > elapsed) continue;
+        view.pending.delete(id);
+        const n = view.data.get(id);
+        if (n) reveal(n, true, now);
+      }
+      busy = view.pending.size > 0;
+    }
+    const moved = new Set();
+    const snap = reducedMotion();
+    for (const v of view.nodes.values()) {
+      if (v.flashUntil) {
+        if (now >= v.flashUntil) {
+          v.flashUntil = 0;
+          const n = view.data.get(v.id);
+          if (n) setNodeState(v, n.state);
+        } else busy = true;
+      }
+      if (v.t0 === null) continue;
+      const k = snap ? 1 : V.easeOutCubic((now - v.t0) / V.TWEEN_MS);
+      v.x = v.fx + (v.tx - v.fx) * k;
+      v.y = v.fy + (v.ty - v.fy) * k;
+      v.grp.setAttribute("transform", `translate(${v.x},${v.y})`);
+      moved.add(v.id);
+      if (k >= 1) v.t0 = null; else busy = true;
+    }
+    if (moved.size) for (const e of view.edges.values()) if (moved.has(e.s) || moved.has(e.t)) placeEdge(e);
+    if (busy) kick();
   }
 
   function shortLabel(n) {
@@ -174,7 +318,7 @@
   // ------------------------------------------------------------ inspector
   async function inspect(index) {
     state.selected = index;
-    if (state.graph) draw(state.graph);
+    markSelected();
     try {
       const p = await api(`/api/crawls/${state.id}/pages/${index}`);
       state.page = p;
@@ -224,7 +368,7 @@
   $("#i-close").addEventListener("click", () => {
     $("#inspector").hidden = true;
     state.selected = null;
-    if (state.graph) draw(state.graph);
+    markSelected();
   });
 
   // ------------------------------------------------------------ export
