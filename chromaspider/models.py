@@ -29,6 +29,7 @@ class CrawlRequest(BaseModel):
     render_mode: RenderMode = "http"
     timeout: float = Field(default=10.0, gt=0, le=MAX_TIMEOUT)
     concurrency: int = Field(default=4, ge=1, le=MAX_CONCURRENCY)
+    respect_robots: bool = True
 
     @field_validator("url")
     @classmethod

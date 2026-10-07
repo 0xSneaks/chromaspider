@@ -8,17 +8,18 @@ JSON, has a live browser UI where neon spiders crawl each page's text next to a
 live crawl graph, and blocks SSRF by default. It is built to run on an Android
 phone in Termux as well as on a desktop.
 
-**[Try the live demo](https://0xsneaks.github.io/chromaspider/)**: the real UI
-replaying a recorded crawl, with nothing to install
+**Try the live demo:** [chromaspider.vercel.app](https://chromaspider.vercel.app) or
+[0xsneaks.github.io/chromaspider](https://0xsneaks.github.io/chromaspider/). It's the
+real UI replaying a recorded crawl, with nothing to install
 ([how it works](site/README.md)).
 
 | Desktop | Phone-width |
 | --- | --- |
 | ![Desktop UI](docs/screenshot-desktop.png) | ![Mobile UI](docs/screenshot-mobile.png) |
 
-*Real screenshots of crawling pypi.org, captured in headless Chromium on
-Linux at desktop and 390 px phone widths. They were not taken on an Android
-device.*
+*Screenshots of the live demo replaying its recorded crawl, captured in
+headless Chromium on Linux at desktop width and at iPhone 13 size. They were not
+taken on a real phone.*
 
 ## Status (V1)
 
@@ -33,7 +34,7 @@ device.*
 | macOS / Windows | expected to work (pure Python), **not tested** |
 | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) |
 | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below |
-| robots.txt | **not implemented yet** |
+| robots.txt | obeyed by default (RFC 9309, incl. capped `Crawl-delay`); `--ignore-robots` opts out |
 | MCP adapter | not included in V1 |
 
 ## Quick start
@@ -93,6 +94,7 @@ chromaspider doctor                                          # platform + option
 | `--max-bytes` | 5000000 | larger bodies are truncated and flagged |
 | `--proxy` | none | explicit http(s) proxy; env proxies are ignored |
 | `--save` | off | also store in `~/.chromaspider/crawls` |
+| `--ignore-robots` | off | don't fetch or obey `robots.txt` (only for sites you may crawl) |
 
 Progress goes to stderr in color (`NO_COLOR=1` disables color). Output goes
 to stdout or `--out`.
@@ -168,7 +170,7 @@ curl -s "http://127.0.0.1:8788/api/crawls/3f2c.../export?format=markdown"
 ```
 
 Optional body fields: `render_mode` (`http`, `auto` or `browser`),
-`timeout`, `concurrency`. Invalid input returns 422, and blocked targets
+`timeout`, `concurrency`, `respect_robots` (default `true`). Invalid input returns 422, and blocked targets
 return 400 with the reason. See [`examples/api_crawl.sh`](examples/api_crawl.sh)
 and [`examples/library.py`](examples/library.py).
 
@@ -239,6 +241,27 @@ examples/         API and library examples
 
 Dependencies: `httpx`, `beautifulsoup4`, `fastapi`, `uvicorn`, `pydantic`.
 Optional: `lxml` (`pip install -e .[lxml]`) and `playwright`.
+
+## robots.txt
+
+By default Chromaspider follows [RFC 9309](https://www.rfc-editor.org/rfc/rfc9309):
+
+- It fetches `/robots.txt` once per site, through the same SSRF-safe
+  connection as every other request.
+- It matches rules for the `Chromaspider` user-agent first, then `*`.
+- Disallowed pages are marked `skipped` with the reason, and their links are
+  not followed. Redirect targets are checked too.
+- A missing `robots.txt` (4xx) means everything is allowed. An unreachable
+  one (5xx or a network error) means nothing on that site is crawled.
+- `Crawl-delay` is honored between requests to the same site, capped at 5
+  seconds.
+
+Turn it off with `--ignore-robots` (CLI) or `"respect_robots": false` (API),
+but only for sites you are allowed to crawl.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
 
 ## Development
 

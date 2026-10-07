@@ -18,10 +18,11 @@ def page(*links, title="t"):
 
 
 def crawl(pages, policy, delays=None, renderer=None, **req):
+    """Run a crawl; returns (pages, page fetches). robots.txt requests are counted separately in the robots tests."""
     transport, hits = make_site(pages, delays)
     request = CrawlRequest(url=req.pop("url", R), **req)
     result = run(Crawler(request, policy=policy, transport=transport, renderer=renderer).run())
-    return result, hits
+    return result, [h for h in hits if not h.endswith("/robots.txt")]
 
 
 def test_duplicates_suppressed(policy):
@@ -152,3 +153,75 @@ def test_concurrency_bound(policy):
     req = CrawlRequest(url=R, depth=1, max_pages=21, concurrency=3)
     pages = run(Crawler(req, policy=policy, transport=httpx.MockTransport(handler)).run())
     assert len(pages) == 21 and peak <= 3
+
+
+# ------------------------------------------------------------------ robots.txt
+
+
+def robots(text):
+    return (200, {"content-type": "text/plain"}, text)
+
+
+def test_robots_disallow_skips_pages_and_their_links(policy):
+    site = {R + "robots.txt": robots("User-agent: *\nDisallow: /private\n"),
+            R: page("/a", "/private", "/private/deeper"), R + "a": page(), R + "private": page("/never")}
+    pages, hits = crawl(site, policy, depth=2)
+    by = {p.requested_url: p for p in pages}
+    assert by[R + "private"].state == "skipped" and "robots.txt" in by[R + "private"].error
+    assert by[R + "a"].state == "ok"
+    assert R + "private" not in hits and R + "private/deeper" not in hits and R + "never" not in by
+
+
+def test_robots_agent_specific_rules_and_single_fetch(policy):
+    site = {R + "robots.txt": robots("User-agent: Chromaspider\nDisallow: /a\n\nUser-agent: *\nDisallow:\n"),
+            R: page("/a", "/b"), R + "a": page(), R + "b": page()}
+    transport, all_hits = make_site(site)
+    result = run(Crawler(CrawlRequest(url=R, depth=1), policy=policy, transport=transport).run())
+    states = {p.requested_url: p.state for p in result}
+    assert states[R + "a"] == "skipped" and states[R + "b"] == "ok"
+    assert all_hits.count(R + "robots.txt") == 1  # fetched once per origin, even with 4 workers
+
+
+def test_missing_robots_allows_everything(policy):
+    pages, _ = crawl({R: page("/a"), R + "a": page()}, policy, depth=1)  # robots.txt -> 404
+    assert [p.state for p in pages] == ["ok", "ok"]
+
+
+def test_unreachable_robots_means_disallow_all(policy):
+    site = {R + "robots.txt": (503, {"content-type": "text/plain"}, "down"), R: page("/a")}
+    pages, hits = crawl(site, policy, depth=1)
+    assert len(pages) == 1 and pages[0].state == "skipped"
+    assert "HTTP 503" in pages[0].error and hits == []
+
+
+def test_ignore_robots_opt_out(policy):
+    site = {R + "robots.txt": robots("User-agent: *\nDisallow: /\n"), R: page()}
+    transport, all_hits = make_site(site)
+    result = run(Crawler(CrawlRequest(url=R, depth=0, respect_robots=False), policy=policy, transport=transport).run())
+    assert result[0].state == "ok" and R + "robots.txt" not in all_hits
+
+
+def test_robots_checked_on_redirect_targets(policy):
+    site = {R + "robots.txt": robots("User-agent: *\nDisallow: /secret\n"),
+            R: (302, {"location": "/secret"}, ""), R + "secret": page()}
+    pages, hits = crawl(site, policy, depth=0)
+    assert pages[0].state == "skipped" and R + "secret" not in hits
+
+
+def test_crawl_delay_is_honored_and_capped(policy, monkeypatch):
+    import chromaspider.crawler as crawler_mod
+
+    slept = []
+
+    async def fake_sleep(s):
+        slept.append(s)
+
+    monkeypatch.setattr(crawler_mod.asyncio, "sleep", fake_sleep)
+    site = {R + "robots.txt": robots("User-agent: *\nCrawl-delay: 30\n"), R: page("/a", "/b"),
+            R + "a": page(), R + "b": page()}
+    pages, _ = crawl(site, policy, depth=1, concurrency=1)
+    assert [p.state for p in pages] == ["ok", "ok", "ok"]
+    # fake sleep does not advance the clock, so waits stack: each step is the capped 5s, not robots' 30s
+    cap = crawler_mod.MAX_CRAWL_DELAY
+    steps = [b - a for a, b in zip([0.0] + slept, slept)]
+    assert len(slept) == 2 and all(cap - 0.1 <= st <= cap + 0.01 for st in steps)

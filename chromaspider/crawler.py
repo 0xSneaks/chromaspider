@@ -5,7 +5,8 @@ from __future__ import annotations
 import asyncio
 import time
 from typing import Callable, Optional
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
+from urllib.robotparser import RobotFileParser
 
 import httpx
 
@@ -16,11 +17,17 @@ from .models import Asset, CrawlRequest, PageResult
 from .security import BlockedURL, SafeTransport, SecurityPolicy, blocked_reason
 
 USER_AGENT = f"Chromaspider/{__version__} (+https://github.com/0xSneaks/chromaspider)"
+ROBOTS_AGENT = "Chromaspider"  # product token matched against robots.txt User-agent lines
+MAX_CRAWL_DELAY = 5.0  # seconds; a larger robots.txt Crawl-delay is capped
 HTML_TYPES = ("text/html", "application/xhtml+xml")
 REDIRECT_CODES = (301, 302, 303, 307, 308)
 
 
 class FetchError(Exception):
+    pass
+
+
+class RobotsDisallowed(Exception):
     pass
 
 
@@ -41,6 +48,10 @@ class Crawler:
         self.on_update = on_update or (lambda page: None)
         self.pages: list[PageResult] = []
         self.seen: set[str] = set()
+        self.robots: dict[str, Optional[RobotFileParser]] = {}  # origin -> rules (None = disallow all)
+        self.robots_notes: dict[str, str] = {}
+        self.robots_locks: dict[str, asyncio.Lock] = {}
+        self.next_fetch: dict[str, float] = {}  # origin -> monotonic time allowed by Crawl-delay
 
     # ------------------------------------------------------------ public
 
@@ -99,9 +110,13 @@ class Crawler:
         self.on_update(page)
         t0 = time.monotonic()
         try:
+            await self._politeness_wait(client, page.requested_url)
             status, final_url, ctype, body, redirects, truncated = await asyncio.wait_for(
                 self._fetch(client, page.requested_url), self.req.timeout
             )
+        except RobotsDisallowed as e:
+            page.state, page.error = "skipped", str(e)
+            return
         except asyncio.TimeoutError:
             page.state, page.error = "failed", f"timeout after {self.req.timeout:g}s"
             return
@@ -151,11 +166,68 @@ class Crawler:
         else:
             page.state = state
 
-    async def _fetch(self, client: httpx.AsyncClient, url: str):
+    # ----------------------------------------------------------- robots.txt (RFC 9309)
+
+    @staticmethod
+    def _origin(url: str) -> str:
+        parts = urlsplit(url)
+        return f"{parts.scheme}://{parts.netloc}"
+
+    async def _robots_for(self, client: httpx.AsyncClient, url: str) -> Optional[RobotFileParser]:
+        origin = self._origin(url)
+        if origin in self.robots:
+            return self.robots[origin]
+        async with self.robots_locks.setdefault(origin, asyncio.Lock()):
+            if origin in self.robots:
+                return self.robots[origin]
+            rules: Optional[RobotFileParser] = RobotFileParser()
+            try:
+                status, _, _, body, _, _ = await asyncio.wait_for(
+                    self._fetch(client, origin + "/robots.txt", check_robots=False), self.req.timeout)
+                if status >= 500:  # unreachable: assume complete disallow
+                    rules, self.robots_notes[origin] = None, f"robots.txt unreachable (HTTP {status})"
+                elif status >= 400:  # unavailable: no restrictions
+                    rules.parse([])
+                else:
+                    rules.parse(body.decode("utf-8", "replace").splitlines())
+            except BlockedURL:
+                rules.parse([])  # the page fetch itself reports the block
+            except (asyncio.TimeoutError, httpx.HTTPError, FetchError) as e:
+                rules, self.robots_notes[origin] = None, f"robots.txt unreachable ({type(e).__name__})"
+            self.robots[origin] = rules
+            return rules
+
+    async def _check_robots(self, client: httpx.AsyncClient, url: str) -> None:
+        if not self.req.respect_robots:
+            return
+        rules = await self._robots_for(client, url)
+        if rules is None:
+            raise RobotsDisallowed(f"not crawled: {self.robots_notes[self._origin(url)]}, treated as disallow-all")
+        if not rules.can_fetch(ROBOTS_AGENT, url):
+            raise RobotsDisallowed("not crawled: disallowed by robots.txt")
+
+    async def _politeness_wait(self, client: httpx.AsyncClient, url: str) -> None:
+        """Honor robots.txt Crawl-delay (capped) between requests to the same origin."""
+        if not self.req.respect_robots:
+            return
+        rules = await self._robots_for(client, url)
+        delay = rules.crawl_delay(ROBOTS_AGENT) if rules else None
+        if not delay:
+            return
+        origin = self._origin(url)
+        now = time.monotonic()
+        start = max(now, self.next_fetch.get(origin, now))
+        self.next_fetch[origin] = start + min(float(delay), MAX_CRAWL_DELAY)
+        if start > now:
+            await asyncio.sleep(start - now)
+
+    async def _fetch(self, client: httpx.AsyncClient, url: str, check_robots: bool = True):
         redirects: list[str] = []
         current = url
         for _ in range(self.policy.max_redirects + 1):
             await self.policy.vet_url(current)
+            if check_robots:
+                await self._check_robots(client, current)
             resp = await client.send(client.build_request("GET", current), stream=True)
             try:
                 location = resp.headers.get("location")

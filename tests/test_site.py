@@ -39,9 +39,9 @@ def test_build_is_repeatable(tmp_path):
 
 def test_recorded_demo_crawl_is_consistent():
     data = json.loads((ROOT / "site" / "demo-crawl.json").read_text())
-    graph, crawl, pages = data["graph"], data["crawl"], data["pages"]
+    graph, crawl = data["graph"], data["crawl"]
     assert crawl["status"] == graph["status"] == "done"
-    assert len(pages) == len(graph["nodes"]) == len(crawl["pages"])
+    assert "pages" not in data and len(graph["nodes"]) == len(crawl["pages"])
     assert all(n["url"].startswith("https://docs.chromaspider.test/") for n in graph["nodes"])
     assert data["markdown"].startswith("# Chromaspider crawl: https://docs.chromaspider.test/")
 
