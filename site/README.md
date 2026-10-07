@@ -10,7 +10,7 @@ Pages only hosts static files, and the crawler is a Python server that runs
 on your own machine.
 
 To crawl real sites, install Chromaspider instead. See
-[Quick start](../README.md#quick-start).
+[Quick start](../README.md#-quick-start).
 
 ## What the demo shows
 
