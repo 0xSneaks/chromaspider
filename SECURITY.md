@@ -84,10 +84,11 @@ your own local test servers.
   browser's own DNS resolution happens after the check (rebinding window).
   Use the HTTP mode if that matters to you.
 
-## Not implemented in V1
+## Limits in V1
 
-* `robots.txt` is **not** consulted yet. Crawl politely and only sites you
-  are allowed to crawl.
+* `robots.txt` is obeyed by default (RFC 9309), but `--ignore-robots` or
+  `"respect_robots": false` turns that off. Crawl politely, and only sites
+  you are allowed to crawl.
 * No authentication or rate limiting on the local API beyond the
   concurrent-crawl cap.
 

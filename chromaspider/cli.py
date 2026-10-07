@@ -41,7 +41,8 @@ def cmd_crawl(args) -> int:
     color = _use_color(err)
     try:
         req = CrawlRequest(url=args.url, depth=args.depth, max_pages=args.max_pages, same_domain=args.same_domain,
-                           render_mode=args.render, timeout=args.timeout, concurrency=args.concurrency)
+                           render_mode=args.render, timeout=args.timeout, concurrency=args.concurrency,
+                           respect_robots=not args.ignore_robots)
     except ValueError as e:
         errors = getattr(e, "errors", lambda: [])()
         detail = "; ".join(f"{'.'.join(map(str, x['loc']))}: {x['msg']}" for x in errors) or str(e)
@@ -131,6 +132,7 @@ def build_parser() -> argparse.ArgumentParser:
     c.add_argument("--concurrency", type=int, default=4)
     c.add_argument("--render", choices=["http", "auto", "browser"], default="http")
     c.add_argument("--max-bytes", type=int, default=5_000_000)
+    c.add_argument("--ignore-robots", action="store_true", help="do not fetch or obey robots.txt")
     c.add_argument("--proxy", help="http(s) proxy URL (environment proxies are ignored)")
     c.add_argument("--allow-private", action="store_true", help="DANGER: allow localhost/private targets")
     c.add_argument("--save", action="store_true", help="also save to ~/.chromaspider/crawls")
