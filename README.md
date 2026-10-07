@@ -88,12 +88,12 @@ verified on a real device**. Full guide and troubleshooting:
 
 ## 🖥️ The web UI
 
-| Desktop | Phone |
+| CRAWL: spiders reading every page | GRAPH: the site map, with a page open |
 | --- | --- |
-| ![Desktop UI](docs/screenshot-desktop.png) | ![Mobile UI](docs/screenshot-mobile.png) |
+| ![Crawl view: page tiles covered in spiders, with SPIDERS, PAGES and WORDS READ counters](docs/screenshot-crawl.png) | ![Graph view: color-coded site map with the page inspector open](docs/screenshot-graph.png) |
 
-<sub>Screenshots of the live demo, captured in headless Chromium at desktop
-width and at iPhone 13 size, not on a real phone.</sub>
+<sub>Screenshots of the live demo at desktop width, captured in headless
+Chromium. The GIF above shows the same UI on a phone-sized screen.</sub>
 
 **CRAWL** shows one tile per crawled page (up to 12), drawn from the page's
 extracted text as plain text. Spiders walk the words and highlight the ones
