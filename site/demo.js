@@ -79,7 +79,7 @@
         return json(snapshotAt(d.graph, times, started === undefined ? Infinity : win.performance.now() - started, m[1]));
       }
       if ((m = path.match(/^\/api\/crawls\/[0-9a-f]{32}\/pages\/(\d+)$/))) {
-        const p = d.pages[Number(m[1])];
+        const p = d.crawl.pages[Number(m[1])];
         return p ? json(p) : json({ detail: "page not found" }, 404);
       }
       if ((m = path.match(/^\/api\/crawls\/([0-9a-f]{32})\/export$/))) {

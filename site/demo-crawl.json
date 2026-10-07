@@ -1,7 +1,7 @@
 {
  "note": "Recorded by site/make_demo.py from an offline mock site built from the Chromaspider docs.",
  "crawl": {
-  "id": "63455850e3a6475f9395069b2b7b5d35",
+  "id": "5c481072e3c546609190274ea4f57c56",
   "request": {
    "url": "https://docs.chromaspider.test/",
    "depth": 2,
@@ -9,11 +9,12 @@
    "same_domain": true,
    "render_mode": "http",
    "timeout": 10.0,
-   "concurrency": 4
+   "concurrency": 4,
+   "respect_robots": true
   },
   "status": "done",
-  "started_at": "2026-10-06T23:25:25+00:00",
-  "finished_at": "2026-10-06T23:25:25+00:00",
+  "started_at": "2026-10-07T00:09:15+00:00",
+  "finished_at": "2026-10-07T00:09:15+00:00",
   "error": null,
   "pages": [
    {
@@ -41,7 +42,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/readme/",
@@ -49,8 +50,8 @@
     "title": "CHROMASPIDER",
     "status": 200,
     "content_type": "text/html; charset=utf-8",
-    "text": "CHROMASPIDER\nCHROMASPIDER\n| Area | State |\n| --- | --- |\n| HTTP crawler, CLI, API, web UI | working, tested |\n| JSON / Markdown export | working, tested |\n| SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |\n| Desktop Linux | verified (clean venv install, tests, live crawl) |\n| macOS / Windows | expected to work (pure Python), **not tested** |\n| Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) |\n| Browser rendering (Playwright / Chromium) | optional, **experimental**; see below |\n| robots.txt | **not implemented yet** |\n| MCP adapter | not included in V1 |\nStatus (V1)\nQuick start\nCLI\nWeb UI\nAPI\nSecurity model",
-    "markdown": "# CHROMASPIDER\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |\n\n- [Status (V1)](https://docs.chromaspider.test/readme/status-v1)\n- [Quick start](https://docs.chromaspider.test/readme/quick-start)\n- [CLI](https://docs.chromaspider.test/readme/cli)\n- [Web UI](https://docs.chromaspider.test/readme/web-ui)\n- [API](https://docs.chromaspider.test/readme/api)\n- [Security model](https://docs.chromaspider.test/readme/security-model)",
+    "text": "CHROMASPIDER\nCHROMASPIDER\n| Area | State |\n| --- | --- |\n| HTTP crawler, CLI, API, web UI | working, tested |\n| JSON / Markdown export | working, tested |\n| Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation |\n| Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) |\n| SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |\n| Desktop Linux | verified (clean venv install, tests, live crawl) |\n| macOS / Windows | expected to work (pure Python), **not tested** |\n| Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) |\n| Browser rendering (Playwright / Chromium) | optional, **experimental**; see below |\n| robots.txt | **not implemented yet** |\n| MCP adapter | not included in V1 |\nStatus (V1)\nQuick start\nCLI\nWeb UI\nAPI\nSecurity model",
+    "markdown": "# CHROMASPIDER\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation | | Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |\n\n- [Status (V1)](https://docs.chromaspider.test/readme/status-v1)\n- [Quick start](https://docs.chromaspider.test/readme/quick-start)\n- [CLI](https://docs.chromaspider.test/readme/cli)\n- [Web UI](https://docs.chromaspider.test/readme/web-ui)\n- [API](https://docs.chromaspider.test/readme/api)\n- [Security model](https://docs.chromaspider.test/readme/security-model)",
     "links": [
      "https://docs.chromaspider.test/readme/status-v1",
      "https://docs.chromaspider.test/readme/quick-start",
@@ -65,13 +66,13 @@
     "depth": 1,
     "parent_url": "https://docs.chromaspider.test/",
     "elapsed_ms": 0,
-    "bytes": 941,
+    "bytes": 1154,
     "truncated": false,
     "render_mode": "http",
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/security/",
@@ -101,7 +102,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/android/",
@@ -131,7 +132,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/readme/status-v1",
@@ -139,8 +140,8 @@
     "title": "CHROMASPIDER: Status (V1)",
     "status": 200,
     "content_type": "text/html; charset=utf-8",
-    "text": "CHROMASPIDER: Status (V1)\nCHROMASPIDER: Status (V1)\n| Area | State |\n| --- | --- |\n| HTTP crawler, CLI, API, web UI | working, tested |\n| JSON / Markdown export | working, tested |\n| SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |\n| Desktop Linux | verified (clean venv install, tests, live crawl) |\n| macOS / Windows | expected to work (pure Python), **not tested** |\n| Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) |\n| Browser rendering (Playwright / Chromium) | optional, **experimental**; see below |\n| robots.txt | **not implemented yet** |\n| MCP adapter | not included in V1 |",
-    "markdown": "# CHROMASPIDER: Status (V1)\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |",
+    "text": "CHROMASPIDER: Status (V1)\nCHROMASPIDER: Status (V1)\n| Area | State |\n| --- | --- |\n| HTTP crawler, CLI, API, web UI | working, tested |\n| JSON / Markdown export | working, tested |\n| Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation |\n| Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) |\n| SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |\n| Desktop Linux | verified (clean venv install, tests, live crawl) |\n| macOS / Windows | expected to work (pure Python), **not tested** |\n| Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) |\n| Browser rendering (Playwright / Chromium) | optional, **experimental**; see below |\n| robots.txt | **not implemented yet** |\n| MCP adapter | not included in V1 |",
+    "markdown": "# CHROMASPIDER: Status (V1)\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation | | Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |",
     "links": [],
     "external_links": [],
     "assets": [],
@@ -148,13 +149,13 @@
     "depth": 2,
     "parent_url": "https://docs.chromaspider.test/readme/",
     "elapsed_ms": 0,
-    "bytes": 681,
+    "bytes": 894,
     "truncated": false,
     "render_mode": "http",
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/readme/quick-start",
@@ -177,7 +178,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/readme/cli",
@@ -200,7 +201,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/readme/web-ui",
@@ -208,8 +209,8 @@
     "title": "CHROMASPIDER: Web UI",
     "status": 200,
     "content_type": "text/html; charset=utf-8",
-    "text": "CHROMASPIDER: Web UI\nCHROMASPIDER: Web UI\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from\nthe page's extracted text as plain text. Stick spiders walk over the words\nand highlight the ones they \"read\". They multiply as pages arrive, then\nfade out when the crawl is done. The counter bar shows SPIDERS, PAGES and\nWORDS READ. Only PAGES is a crawl figure; the other two describe the\nanimation. Tap a tile to inspect that page. With reduced motion turned on,\nthe tiles appear at once and no spiders are shown.\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n[Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in\nheadless Chromium at iPhone 13 size against a local mock site.\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page,\nand each line runs from parent to child.\n| Color | Meaning |\n| --- | --- |\n| 🟢 green | extracted successfully |\n| 🔵 cyan | crawling now |\n| 🟣 violet | rendered with a browser |\n| 🟡 yellow | skipped (non-HTML content, not parsed) |\n| 🟠 orange | reached via redirect |\n| 🔴 red | failed or blocked |\nTap a node to see its URL, title, status, timing, metadata, extracted\nMarkdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**,\n**DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl,\nplus per-page copy buttons. The layout is mobile-first.",
-    "markdown": "# CHROMASPIDER: Web UI\n\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from the page's extracted text as plain text. Stick spiders walk over the words and highlight the ones they \"read\". They multiply as pages arrive, then fade out when the crawl is done. The counter bar shows SPIDERS, PAGES and WORDS READ. Only PAGES is a crawl figure; the other two describe the animation. Tap a tile to inspect that page. With reduced motion turned on, the tiles appear at once and no spiders are shown.\n\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n\n[Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in headless Chromium at iPhone 13 size against a local mock site.\n\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page, and each line runs from parent to child.\n\n| Color | Meaning | | --- | --- | | 🟢 green | extracted successfully | | 🔵 cyan | crawling now | | 🟣 violet | rendered with a browser | | 🟡 yellow | skipped (non-HTML content, not parsed) | | 🟠 orange | reached via redirect | | 🔴 red | failed or blocked |\n\nTap a node to see its URL, title, status, timing, metadata, extracted Markdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**, **DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl, plus per-page copy buttons. The layout is mobile-first.",
+    "text": "CHROMASPIDER: Web UI\nCHROMASPIDER: Web UI\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from\nthe page's extracted text as plain text. Stick spiders walk over the words\nand highlight the ones they \"read\". They multiply as pages arrive, then\nfade out when the crawl is done. The counter bar shows SPIDERS, PAGES and\nWORDS READ. Only PAGES is a crawl figure; the other two describe the\nanimation. Tap a tile to inspect that page. With reduced motion turned on,\nthe tiles appear at once and no spiders are shown.\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n**[Try the live demo](https://0xsneaks.github.io/chromaspider/)**. It runs this\nUI in your browser and replays a recorded crawl of an offline mock site built\nfrom these docs. It never crawls anything itself; the site is built from\n`site/` by `.github/workflows/pages.yml`.\n[Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in\nheadless Chromium at iPhone 13 size against a local mock site.\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page,\nand each line runs from parent to child.\n| Color | Meaning |\n| --- | --- |\n| 🟢 green | extracted successfully |\n| 🔵 cyan | crawling now |\n| 🟣 violet | rendered with a browser |\n| 🟡 yellow | skipped (non-HTML content, not parsed) |\n| 🟠 orange | reached via redirect |\n| 🔴 red | failed or blocked |\nTap a node to see its URL, title, status, timing, metadata, extracted\nMarkdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**,\n**DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl,\nplus per-page copy buttons. The layout is mobile-first.",
+    "markdown": "# CHROMASPIDER: Web UI\n\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from the page's extracted text as plain text. Stick spiders walk over the words and highlight the ones they \"read\". They multiply as pages arrive, then fade out when the crawl is done. The counter bar shows SPIDERS, PAGES and WORDS READ. Only PAGES is a crawl figure; the other two describe the animation. Tap a tile to inspect that page. With reduced motion turned on, the tiles appear at once and no spiders are shown.\n\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n\n**[Try the live demo](https://0xsneaks.github.io/chromaspider/)**. It runs this UI in your browser and replays a recorded crawl of an offline mock site built from these docs. It never crawls anything itself; the site is built from `site/` by `.github/workflows/pages.yml`. [Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in headless Chromium at iPhone 13 size against a local mock site.\n\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page, and each line runs from parent to child.\n\n| Color | Meaning | | --- | --- | | 🟢 green | extracted successfully | | 🔵 cyan | crawling now | | 🟣 violet | rendered with a browser | | 🟡 yellow | skipped (non-HTML content, not parsed) | | 🟠 orange | reached via redirect | | 🔴 red | failed or blocked |\n\nTap a node to see its URL, title, status, timing, metadata, extracted Markdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**, **DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl, plus per-page copy buttons. The layout is mobile-first.",
     "links": [],
     "external_links": [],
     "assets": [],
@@ -217,13 +218,13 @@
     "depth": 2,
     "parent_url": "https://docs.chromaspider.test/readme/",
     "elapsed_ms": 0,
-    "bytes": 1548,
+    "bytes": 1821,
     "truncated": false,
     "render_mode": "http",
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/readme/api",
@@ -246,7 +247,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/readme/security-model",
@@ -269,7 +270,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/security/network-destination-rules-ssrf",
@@ -292,7 +293,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/security/resource-limits",
@@ -315,7 +316,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/security/content-handling",
@@ -338,7 +339,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/security/local-server",
@@ -361,7 +362,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat",
@@ -384,7 +385,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/security/not-implemented-in-v1",
@@ -407,7 +408,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/android/1-install-termux",
@@ -430,7 +431,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/android/2-install",
@@ -453,7 +454,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/android/3-run",
@@ -476,7 +477,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/android/troubleshooting",
@@ -499,7 +500,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/android/optional-javascript-rendering-experiment",
@@ -522,7 +523,7 @@
     "render_note": null,
     "state": "ok",
     "error": null,
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    },
    {
     "requested_url": "https://docs.chromaspider.test/android/missing-page",
@@ -545,12 +546,12 @@
     "render_note": null,
     "state": "failed",
     "error": "HTTP 404",
-    "timestamp": "2026-10-06T23:25:25+00:00"
+    "timestamp": "2026-10-07T00:09:15+00:00"
    }
   ]
  },
  "graph": {
-  "id": "63455850e3a6475f9395069b2b7b5d35",
+  "id": "5c481072e3c546609190274ea4f57c56",
   "status": "done",
   "nodes": [
    {
@@ -931,538 +932,5 @@
    "failed": 1
   }
  },
- "pages": [
-  {
-   "requested_url": "https://docs.chromaspider.test/",
-   "final_url": "https://docs.chromaspider.test/",
-   "title": "Chromaspider docs",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Chromaspider docs\nChromaspider docs\nCrawl the web. Follow the colors. Demo site built from the Chromaspider docs.\nCHROMASPIDER\nSecurity model\nChromaspider on Android (Termux)",
-   "markdown": "# Chromaspider docs\n\nCrawl the web. Follow the colors. Demo site built from the Chromaspider docs.\n\n- [CHROMASPIDER](https://docs.chromaspider.test/readme/)\n- [Security model](https://docs.chromaspider.test/security/)\n- [Chromaspider on Android (Termux)](https://docs.chromaspider.test/android/)",
-   "links": [
-    "https://docs.chromaspider.test/readme/",
-    "https://docs.chromaspider.test/security/",
-    "https://docs.chromaspider.test/android/"
-   ],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 0,
-   "parent_url": null,
-   "elapsed_ms": 1,
-   "bytes": 308,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/readme/",
-   "final_url": "https://docs.chromaspider.test/readme/",
-   "title": "CHROMASPIDER",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "CHROMASPIDER\nCHROMASPIDER\n| Area | State |\n| --- | --- |\n| HTTP crawler, CLI, API, web UI | working, tested |\n| JSON / Markdown export | working, tested |\n| SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |\n| Desktop Linux | verified (clean venv install, tests, live crawl) |\n| macOS / Windows | expected to work (pure Python), **not tested** |\n| Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) |\n| Browser rendering (Playwright / Chromium) | optional, **experimental**; see below |\n| robots.txt | **not implemented yet** |\n| MCP adapter | not included in V1 |\nStatus (V1)\nQuick start\nCLI\nWeb UI\nAPI\nSecurity model",
-   "markdown": "# CHROMASPIDER\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |\n\n- [Status (V1)](https://docs.chromaspider.test/readme/status-v1)\n- [Quick start](https://docs.chromaspider.test/readme/quick-start)\n- [CLI](https://docs.chromaspider.test/readme/cli)\n- [Web UI](https://docs.chromaspider.test/readme/web-ui)\n- [API](https://docs.chromaspider.test/readme/api)\n- [Security model](https://docs.chromaspider.test/readme/security-model)",
-   "links": [
-    "https://docs.chromaspider.test/readme/status-v1",
-    "https://docs.chromaspider.test/readme/quick-start",
-    "https://docs.chromaspider.test/readme/cli",
-    "https://docs.chromaspider.test/readme/web-ui",
-    "https://docs.chromaspider.test/readme/api",
-    "https://docs.chromaspider.test/readme/security-model"
-   ],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 1,
-   "parent_url": "https://docs.chromaspider.test/",
-   "elapsed_ms": 0,
-   "bytes": 941,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/security/",
-   "final_url": "https://docs.chromaspider.test/security/",
-   "title": "Security model",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Security model\nSecurity model\nEnforced in `chromaspider/security.py`:\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`,\n`javascript:`, `gopher:`, `ws:` and others are rejected. URLs with\nembedded credentials are rejected.\n* **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`,\n`*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data`\nand similar.\n* **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges\n(`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local\n(`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`),\nCGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges,\nand anything Python's `ipaddress` does not consider globally routable.\nBlocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses\nthat wrap a private IPv4, and Teredo.\n* **DNS is resolved and checked.** If *any* address a hostname resolves to\nis blocked, the request is refused.\n* **Connect-time enforcement:** a custom httpcore network backend resolves\nand vets the host itself and then dials the vetted IP. Every TCP\nconnection goes through this check, including each redirect hop, so DNS\nrebinding between the check and the connection cannot reach an internal\naddress. This is tested in `tests/test_security.py`.\n* **Redirects are followed manually.** Each hop is re-validated, with a\nmaximum of 5.\n* Environment proxy variables are **ignored**. Use `--proxy` to set one\nexplicitly. With a proxy, the proxy endpoint itself is trusted, and the\ntarget hostname is still resolved and vetted locally before each request.\n`--allow-private` turns these destination rules off. Use it only to crawl\nyour own local test servers.\nNetwork destination rules (SSRF)\nResource limits\nContent handling\nLocal server\nOptional browser rendering: known limitations\nNot implemented in V1",
-   "markdown": "# Security model\n\nEnforced in `chromaspider/security.py`:\n\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`, `javascript:`, `gopher:`, `ws:` and others are rejected. URLs with embedded credentials are rejected. * **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`, `*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data` and similar. * **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges (`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local (`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`), CGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges, and anything Python's `ipaddress` does not consider globally routable. Blocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses that wrap a private IPv4, and Teredo. * **DNS is resolved and checked.** If *any* address a hostname resolves to is blocked, the request is refused. * **Connect-time enforcement:** a custom httpcore network backend resolves and vets the host itself and then dials the vetted IP. Every TCP connection goes through this check, including each redirect hop, so DNS rebinding between the check and the connection cannot reach an internal address. This is tested in `tests/test_security.py`. * **Redirects are followed manually.** Each hop is re-validated, with a maximum of 5. * Environment proxy variables are **ignored**. Use `--proxy` to set one explicitly. With a proxy, the proxy endpoint itself is trusted, and the target hostname is still resolved and vetted locally before each request.\n\n`--allow-private` turns these destination rules off. Use it only to crawl your own local test servers.\n\n- [Network destination rules (SSRF)](https://docs.chromaspider.test/security/network-destination-rules-ssrf)\n- [Resource limits](https://docs.chromaspider.test/security/resource-limits)\n- [Content handling](https://docs.chromaspider.test/security/content-handling)\n- [Local server](https://docs.chromaspider.test/security/local-server)\n- [Optional browser rendering: known limitations](https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat)\n- [Not implemented in V1](https://docs.chromaspider.test/security/not-implemented-in-v1)",
-   "links": [
-    "https://docs.chromaspider.test/security/network-destination-rules-ssrf",
-    "https://docs.chromaspider.test/security/resource-limits",
-    "https://docs.chromaspider.test/security/content-handling",
-    "https://docs.chromaspider.test/security/local-server",
-    "https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat",
-    "https://docs.chromaspider.test/security/not-implemented-in-v1"
-   ],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 1,
-   "parent_url": "https://docs.chromaspider.test/",
-   "elapsed_ms": 0,
-   "bytes": 2279,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/android/",
-   "final_url": "https://docs.chromaspider.test/android/",
-   "title": "Chromaspider on Android (Termux)",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Chromaspider on Android (Termux)\nChromaspider on Android (Termux)\nInstall Termux from **F-Droid** or the official GitHub releases. The Play\nStore build is outdated.\n1. Install Termux\n2. Install\n3. Run\nTroubleshooting\nOptional: JavaScript rendering (experimental)\nOld install guide",
-   "markdown": "# Chromaspider on Android (Termux)\n\nInstall Termux from **F-Droid** or the official GitHub releases. The Play Store build is outdated.\n\n- [1. Install Termux](https://docs.chromaspider.test/android/1-install-termux)\n- [2. Install](https://docs.chromaspider.test/android/2-install)\n- [3. Run](https://docs.chromaspider.test/android/3-run)\n- [Troubleshooting](https://docs.chromaspider.test/android/troubleshooting)\n- [Optional: JavaScript rendering (experimental)](https://docs.chromaspider.test/android/optional-javascript-rendering-experiment)\n- [Old install guide](https://docs.chromaspider.test/android/missing-page)",
-   "links": [
-    "https://docs.chromaspider.test/android/1-install-termux",
-    "https://docs.chromaspider.test/android/2-install",
-    "https://docs.chromaspider.test/android/3-run",
-    "https://docs.chromaspider.test/android/troubleshooting",
-    "https://docs.chromaspider.test/android/optional-javascript-rendering-experiment",
-    "https://docs.chromaspider.test/android/missing-page"
-   ],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 1,
-   "parent_url": "https://docs.chromaspider.test/",
-   "elapsed_ms": 0,
-   "bytes": 607,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/readme/status-v1",
-   "final_url": "https://docs.chromaspider.test/readme/status-v1",
-   "title": "CHROMASPIDER: Status (V1)",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "CHROMASPIDER: Status (V1)\nCHROMASPIDER: Status (V1)\n| Area | State |\n| --- | --- |\n| HTTP crawler, CLI, API, web UI | working, tested |\n| JSON / Markdown export | working, tested |\n| SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |\n| Desktop Linux | verified (clean venv install, tests, live crawl) |\n| macOS / Windows | expected to work (pure Python), **not tested** |\n| Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) |\n| Browser rendering (Playwright / Chromium) | optional, **experimental**; see below |\n| robots.txt | **not implemented yet** |\n| MCP adapter | not included in V1 |",
-   "markdown": "# CHROMASPIDER: Status (V1)\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/readme/",
-   "elapsed_ms": 0,
-   "bytes": 681,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/readme/quick-start",
-   "final_url": "https://docs.chromaspider.test/readme/quick-start",
-   "title": "CHROMASPIDER: Quick start",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "CHROMASPIDER: Quick start\nCHROMASPIDER: Quick start\n### Desktop (Linux / macOS / Windows)\n```sh\ngit clone https://github.com/0xSneaks/chromaspider\ncd chromaspider\npython -m venv .venv && . .venv/bin/activate # Windows: .venv\\Scripts\\activate\npip install -e .\nchromaspider serve\n```\nOpen **http://127.0.0.1:8788**, paste a URL and press **CRAWL**.\n### Android / Termux\n```sh\npkg update\npkg install python git rust\ngit clone https://github.com/0xSneaks/chromaspider\ncd chromaspider\npip install -e .\nchromaspider serve\n```\nThen open **http://127.0.0.1:8788** in Chrome on the phone. `rust` is needed\nbecause `pydantic-core` has no Android wheel. Full guide and troubleshooting:\n[ANDROID.md](ANDROID.md).",
-   "markdown": "# CHROMASPIDER: Quick start\n\n### Desktop (Linux / macOS / Windows)\n\n```sh git clone https://github.com/0xSneaks/chromaspider cd chromaspider python -m venv .venv && . .venv/bin/activate # Windows: .venv\\Scripts\\activate pip install -e . chromaspider serve ```\n\n\n\nOpen **http://127.0.0.1:8788**, paste a URL and press **CRAWL**.\n\n\n\n### Android / Termux\n\n\n\n```sh pkg update pkg install python git rust git clone https://github.com/0xSneaks/chromaspider cd chromaspider pip install -e . chromaspider serve ```\n\nThen open **http://127.0.0.1:8788** in Chrome on the phone. `rust` is needed because `pydantic-core` has no Android wheel. Full guide and troubleshooting: [ANDROID.md](ANDROID.md).",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/readme/",
-   "elapsed_ms": 0,
-   "bytes": 778,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/readme/cli",
-   "final_url": "https://docs.chromaspider.test/readme/cli",
-   "title": "CHROMASPIDER: CLI",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "CHROMASPIDER: CLI\nCHROMASPIDER: CLI\n```sh\nchromaspider crawl https://example.com # JSON to stdout\nchromaspider crawl https://example.com --output markdown --out site.md\nchromaspider crawl https://example.com \\\n--depth 2 \\\n--max-pages 25 \\\n--same-domain \\\n--output json\nchromaspider crawl https://example.com --no-same-domain --concurrency 8 --timeout 15\nchromaspider crawl https://example.com --render auto # use a browser if one is installed\nchromaspider serve --port 8788\nchromaspider doctor # platform + optional backends\n```\n| Option | Default | Notes |\n| --- | --- | --- |\n| `--depth` | 1 | 0 to 5. 0 means the start page only |\n| `--max-pages` | 20 | 1 to 500 |\n| `--same-domain` / `--no-same-domain` | on | `www.` is treated as the same host |\n| `--output` | json | `json` or `markdown` |\n| `--timeout` | 10 | seconds, total per page including redirects |\n| `--concurrency` | 4 | 1 to 16 |\n| `--render` | http | `http`, `auto` or `browser` (always falls back to HTTP) |\n| `--max-bytes` | 5000000 | larger bodies are truncated and flagged |\n| `--proxy` | none | explicit http(s) proxy; env proxies are ignored |\n| `--save` | off | also store in `~/.chromaspider/crawls` |\nProgress goes to stderr in color (`NO_COLOR=1` disables color). Output goes\nto stdout or `--out`.\n### What each page records\n`requested_url`, `final_url`, `title`, `status`, `content_type`, `text`,\n`markdown`, `links`, `external_links`, `assets` (images, scripts,\nstylesheets, icons, media), `redirects`, `depth`, `parent_url`,\n`elapsed_ms`, `bytes`, `truncated`, `render_mode` (`http` or `browser`),\n`render_note`, `state`, `error`, `timestamp`.\nURLs are normalized before deduplication. Scheme and host are lowercased,\nIDNA-encoded, default ports, fragments and dot-segments are removed, and\nquery parameters are sorted.",
-   "markdown": "# CHROMASPIDER: CLI\n\n```sh chromaspider crawl https://example.com # JSON to stdout chromaspider crawl https://example.com --output markdown --out site.md chromaspider crawl https://example.com \\ --depth 2 \\ --max-pages 25 \\ --same-domain \\ --output json chromaspider crawl https://example.com --no-same-domain --concurrency 8 --timeout 15 chromaspider crawl https://example.com --render auto # use a browser if one is installed chromaspider serve --port 8788 chromaspider doctor # platform + optional backends ```\n\n\n\n| Option | Default | Notes | | --- | --- | --- | | `--depth` | 1 | 0 to 5. 0 means the start page only | | `--max-pages` | 20 | 1 to 500 | | `--same-domain` / `--no-same-domain` | on | `www.` is treated as the same host | | `--output` | json | `json` or `markdown` | | `--timeout` | 10 | seconds, total per page including redirects | | `--concurrency` | 4 | 1 to 16 | | `--render` | http | `http`, `auto` or `browser` (always falls back to HTTP) | | `--max-bytes` | 5000000 | larger bodies are truncated and flagged | | `--proxy` | none | explicit http(s) proxy; env proxies are ignored | | `--save` | off | also store in `~/.chromaspider/crawls` |\n\n\n\nProgress goes to stderr in color (`NO_COLOR=1` disables color). Output goes to stdout or `--out`.\n\n\n\n### What each page records\n\n\n\n`requested_url`, `final_url`, `title`, `status`, `content_type`, `text`, `markdown`, `links`, `external_links`, `assets` (images, scripts, stylesheets, icons, media), `redirects`, `depth`, `parent_url`, `elapsed_ms`, `bytes`, `truncated`, `render_mode` (`http` or `browser`), `render_note`, `state`, `error`, `timestamp`.\n\n\n\nURLs are normalized before deduplication. Scheme and host are lowercased, IDNA-encoded, default ports, fragments and dot-segments are removed, and query parameters are sorted.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/readme/",
-   "elapsed_ms": 0,
-   "bytes": 1947,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/readme/web-ui",
-   "final_url": "https://docs.chromaspider.test/readme/web-ui",
-   "title": "CHROMASPIDER: Web UI",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "CHROMASPIDER: Web UI\nCHROMASPIDER: Web UI\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from\nthe page's extracted text as plain text. Stick spiders walk over the words\nand highlight the ones they \"read\". They multiply as pages arrive, then\nfade out when the crawl is done. The counter bar shows SPIDERS, PAGES and\nWORDS READ. Only PAGES is a crawl figure; the other two describe the\nanimation. Tap a tile to inspect that page. With reduced motion turned on,\nthe tiles appear at once and no spiders are shown.\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n[Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in\nheadless Chromium at iPhone 13 size against a local mock site.\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page,\nand each line runs from parent to child.\n| Color | Meaning |\n| --- | --- |\n| 🟢 green | extracted successfully |\n| 🔵 cyan | crawling now |\n| 🟣 violet | rendered with a browser |\n| 🟡 yellow | skipped (non-HTML content, not parsed) |\n| 🟠 orange | reached via redirect |\n| 🔴 red | failed or blocked |\nTap a node to see its URL, title, status, timing, metadata, extracted\nMarkdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**,\n**DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl,\nplus per-page copy buttons. The layout is mobile-first.",
-   "markdown": "# CHROMASPIDER: Web UI\n\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from the page's extracted text as plain text. Stick spiders walk over the words and highlight the ones they \"read\". They multiply as pages arrive, then fade out when the crawl is done. The counter bar shows SPIDERS, PAGES and WORDS READ. Only PAGES is a crawl figure; the other two describe the animation. Tap a tile to inspect that page. With reduced motion turned on, the tiles appear at once and no spiders are shown.\n\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n\n[Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in headless Chromium at iPhone 13 size against a local mock site.\n\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page, and each line runs from parent to child.\n\n| Color | Meaning | | --- | --- | | 🟢 green | extracted successfully | | 🔵 cyan | crawling now | | 🟣 violet | rendered with a browser | | 🟡 yellow | skipped (non-HTML content, not parsed) | | 🟠 orange | reached via redirect | | 🔴 red | failed or blocked |\n\nTap a node to see its URL, title, status, timing, metadata, extracted Markdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**, **DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl, plus per-page copy buttons. The layout is mobile-first.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/readme/",
-   "elapsed_ms": 0,
-   "bytes": 1548,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/readme/api",
-   "final_url": "https://docs.chromaspider.test/readme/api",
-   "title": "CHROMASPIDER: API",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "CHROMASPIDER: API\nCHROMASPIDER: API\n| Method | Path | |\n| --- | --- | --- |\n| `POST` | `/api/crawl` | start a crawl, returns `{\"id\": ...}` (202) |\n| `GET` | `/api/crawls/{id}` | full record with all pages |\n| `GET` | `/api/crawls/{id}/graph` | nodes, edges, state counts |\n| `GET` | `/api/crawls/{id}/pages/{n}` | one page |\n| `GET` | `/api/crawls/{id}/export?format=json` | download JSON |\n| `GET` | `/api/crawls/{id}/export?format=markdown` | download Markdown |\n| `GET` | `/api/health` | version and browser backend status |\n| `GET` | `/api/docs` | interactive OpenAPI docs |\n```sh\ncurl -s -X POST http://127.0.0.1:8788/api/crawl \\\n-H 'Content-Type: application/json' \\\n-d '{\"url\": \"https://example.com\", \"depth\": 2, \"max_pages\": 20, \"same_domain\": true}'\n# {\"id\":\"3f2c...\",\"status\":\"running\"}\ncurl -s \"http://127.0.0.1:8788/api/crawls/3f2c.../export?format=markdown\"\n```\nOptional body fields: `render_mode` (`http`, `auto` or `browser`),\n`timeout`, `concurrency`. Invalid input returns 422, and blocked targets\nreturn 400 with the reason. See [`examples/api_crawl.sh`](examples/api_crawl.sh)\nand [`examples/library.py`](examples/library.py).\nCrawls are kept in memory and saved as JSON files in `~/.chromaspider/crawls`\n(override with `CHROMASPIDER_DATA`). No database server is used.",
-   "markdown": "# CHROMASPIDER: API\n\n| Method | Path | | | --- | --- | --- | | `POST` | `/api/crawl` | start a crawl, returns `{\"id\": ...}` (202) | | `GET` | `/api/crawls/{id}` | full record with all pages | | `GET` | `/api/crawls/{id}/graph` | nodes, edges, state counts | | `GET` | `/api/crawls/{id}/pages/{n}` | one page | | `GET` | `/api/crawls/{id}/export?format=json` | download JSON | | `GET` | `/api/crawls/{id}/export?format=markdown` | download Markdown | | `GET` | `/api/health` | version and browser backend status | | `GET` | `/api/docs` | interactive OpenAPI docs |\n\n```sh curl -s -X POST http://127.0.0.1:8788/api/crawl \\ -H 'Content-Type: application/json' \\ -d '{\"url\": \"https://example.com\", \"depth\": 2, \"max_pages\": 20, \"same_domain\": true}' # {\"id\":\"3f2c...\",\"status\":\"running\"}\n\n\n\ncurl -s \"http://127.0.0.1:8788/api/crawls/3f2c.../export?format=markdown\" ```\n\n\n\nOptional body fields: `render_mode` (`http`, `auto` or `browser`), `timeout`, `concurrency`. Invalid input returns 422, and blocked targets return 400 with the reason. See [`examples/api_crawl.sh`](examples/api_crawl.sh) and [`examples/library.py`](examples/library.py).\n\n\n\nCrawls are kept in memory and saved as JSON files in `~/.chromaspider/crawls` (override with `CHROMASPIDER_DATA`). No database server is used.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/readme/",
-   "elapsed_ms": 0,
-   "bytes": 1484,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/readme/security-model",
-   "final_url": "https://docs.chromaspider.test/readme/security-model",
-   "title": "CHROMASPIDER: Security model",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "CHROMASPIDER: Security model\nCHROMASPIDER: Security model\nShort version (details in [SECURITY.md](SECURITY.md)):\n* Only `http` and `https`. Localhost, `127.0.0.0/8`, `::1`, private IPv4\nand IPv6 ranges, link-local, CGNAT and cloud metadata endpoints are blocked\nby default.\n* DNS is resolved and every resulting IP is checked. The check is enforced\nagain **at connect time** in a custom network backend, so redirects and DNS\nrebinding cannot slip through. Every redirect hop is re-validated.\n* Hard limits cover depth, pages, concurrency, timeout, response bytes and\nredirects.\n* Crawled content is never executed, is rendered in the UI as text only,\nand is never sent to an LLM.\n* The local server binds to `127.0.0.1`, checks the `Host` header and only\naccepts same-origin JSON POSTs.\n`--allow-private` disables the destination rules, for crawling your own\nlocal test sites only.",
-   "markdown": "# CHROMASPIDER: Security model\n\nShort version (details in [SECURITY.md](SECURITY.md)):\n\n* Only `http` and `https`. Localhost, `127.0.0.0/8`, `::1`, private IPv4 and IPv6 ranges, link-local, CGNAT and cloud metadata endpoints are blocked by default. * DNS is resolved and every resulting IP is checked. The check is enforced again **at connect time** in a custom network backend, so redirects and DNS rebinding cannot slip through. Every redirect hop is re-validated. * Hard limits cover depth, pages, concurrency, timeout, response bytes and redirects. * Crawled content is never executed, is rendered in the UI as text only, and is never sent to an LLM. * The local server binds to `127.0.0.1`, checks the `Host` header and only accepts same-origin JSON POSTs.\n\n`--allow-private` disables the destination rules, for crawling your own local test sites only.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/readme/",
-   "elapsed_ms": 0,
-   "bytes": 945,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/security/network-destination-rules-ssrf",
-   "final_url": "https://docs.chromaspider.test/security/network-destination-rules-ssrf",
-   "title": "Security model: Network destination rules (SSRF)",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Security model: Network destination rules (SSRF)\nSecurity model: Network destination rules (SSRF)\nEnforced in `chromaspider/security.py`:\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`,\n`javascript:`, `gopher:`, `ws:` and others are rejected. URLs with\nembedded credentials are rejected.\n* **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`,\n`*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data`\nand similar.\n* **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges\n(`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local\n(`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`),\nCGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges,\nand anything Python's `ipaddress` does not consider globally routable.\nBlocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses\nthat wrap a private IPv4, and Teredo.\n* **DNS is resolved and checked.** If *any* address a hostname resolves to\nis blocked, the request is refused.\n* **Connect-time enforcement:** a custom httpcore network backend resolves\nand vets the host itself and then dials the vetted IP. Every TCP\nconnection goes through this check, including each redirect hop, so DNS\nrebinding between the check and the connection cannot reach an internal\naddress. This is tested in `tests/test_security.py`.\n* **Redirects are followed manually.** Each hop is re-validated, with a\nmaximum of 5.\n* Environment proxy variables are **ignored**. Use `--proxy` to set one\nexplicitly. With a proxy, the proxy endpoint itself is trusted, and the\ntarget hostname is still resolved and vetted locally before each request.\n`--allow-private` turns these destination rules off. Use it only to crawl\nyour own local test servers.",
-   "markdown": "# Security model: Network destination rules (SSRF)\n\nEnforced in `chromaspider/security.py`:\n\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`, `javascript:`, `gopher:`, `ws:` and others are rejected. URLs with embedded credentials are rejected. * **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`, `*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data` and similar. * **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges (`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local (`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`), CGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges, and anything Python's `ipaddress` does not consider globally routable. Blocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses that wrap a private IPv4, and Teredo. * **DNS is resolved and checked.** If *any* address a hostname resolves to is blocked, the request is refused. * **Connect-time enforcement:** a custom httpcore network backend resolves and vets the host itself and then dials the vetted IP. Every TCP connection goes through this check, including each redirect hop, so DNS rebinding between the check and the connection cannot reach an internal address. This is tested in `tests/test_security.py`. * **Redirects are followed manually.** Each hop is re-validated, with a maximum of 5. * Environment proxy variables are **ignored**. Use `--proxy` to set one explicitly. With a proxy, the proxy endpoint itself is trusted, and the target hostname is still resolved and vetted locally before each request.\n\n`--allow-private` turns these destination rules off. Use it only to crawl your own local test servers.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/security/",
-   "elapsed_ms": 0,
-   "bytes": 1868,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/security/resource-limits",
-   "final_url": "https://docs.chromaspider.test/security/resource-limits",
-   "title": "Security model: Resource limits",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Security model: Resource limits\nSecurity model: Resource limits\n| Limit | Default | Hard max |\n| --- | --- | --- |\n| depth | 1 | 5 |\n| pages per crawl | 20 | 500 |\n| concurrency | 4 | 16 |\n| request timeout (total per page, incl. redirects) | 10 s | 60 s |\n| response body | 5 MB (truncated, flagged `truncated: true`) | CLI `--max-bytes` |\n| redirects | 5 | - |\n| simultaneous crawls via API | 2 | - |",
-   "markdown": "# Security model: Resource limits\n\n| Limit | Default | Hard max | | --- | --- | --- | | depth | 1 | 5 | | pages per crawl | 20 | 500 | | concurrency | 4 | 16 | | request timeout (total per page, incl. redirects) | 10 s | 60 s | | response body | 5 MB (truncated, flagged `truncated: true`) | CLI `--max-bytes` | | redirects | 5 | - | | simultaneous crawls via API | 2 | - |",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/security/",
-   "elapsed_ms": 0,
-   "bytes": 440,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/security/content-handling",
-   "final_url": "https://docs.chromaspider.test/security/content-handling",
-   "title": "Security model: Content handling",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Security model: Content handling\nSecurity model: Content handling\n* Crawled content is **never executed**. HTML is parsed with BeautifulSoup.\n`script`, `style`, `iframe`, `object`, `embed`, `svg`, `form` and similar\nare removed before text and Markdown are produced.\n* The web UI renders all crawled data with `textContent`, never `innerHTML`,\nand serves a strict Content-Security-Policy (`script-src 'self'`, no\ninline script, `frame-ancestors 'none'`).\n* Crawled content is **not sent to any LLM or external API**. Markdown\nexports carry a note that the content is untrusted. Treat it as data, not\ninstructions, if you feed it to an agent.",
-   "markdown": "# Security model: Content handling\n\n* Crawled content is **never executed**. HTML is parsed with BeautifulSoup. `script`, `style`, `iframe`, `object`, `embed`, `svg`, `form` and similar are removed before text and Markdown are produced. * The web UI renders all crawled data with `textContent`, never `innerHTML`, and serves a strict Content-Security-Policy (`script-src 'self'`, no inline script, `frame-ancestors 'none'`). * Crawled content is **not sent to any LLM or external API**. Markdown exports carry a note that the content is untrusted. Treat it as data, not instructions, if you feed it to an agent.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/security/",
-   "elapsed_ms": 0,
-   "bytes": 711,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/security/local-server",
-   "final_url": "https://docs.chromaspider.test/security/local-server",
-   "title": "Security model: Local server",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Security model: Local server\nSecurity model: Local server\n* `chromaspider serve` binds to `127.0.0.1` by default.\n* The `Host` header must be `127.0.0.1`, `localhost` or `::1`. This blocks\nDNS-rebinding attacks from web pages against the local API.\n* `POST` requires `Content-Type: application/json` and a same-origin\n`Origin`, so other websites open in your browser cannot start crawls.\n* There is **no authentication**. Do not expose the server to a network\n(`--host 0.0.0.0`) unless you understand that anyone who can reach it can\nuse it.",
-   "markdown": "# Security model: Local server\n\n* `chromaspider serve` binds to `127.0.0.1` by default. * The `Host` header must be `127.0.0.1`, `localhost` or `::1`. This blocks DNS-rebinding attacks from web pages against the local API. * `POST` requires `Content-Type: application/json` and a same-origin `Origin`, so other websites open in your browser cannot start crawls. * There is **no authentication**. Do not expose the server to a network (`--host 0.0.0.0`) unless you understand that anyone who can reach it can use it.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/security/",
-   "elapsed_ms": 0,
-   "bytes": 587,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat",
-   "final_url": "https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat",
-   "title": "Security model: Optional browser rendering: known limitations",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Security model: Optional browser rendering: known limitations\nSecurity model: Optional browser rendering: known limitations\n* **Termux/Chromium adapter** (`--dump-dom`): Chromium's resolver is pinned\nwith `--host-resolver-rules` so only the page's own host resolves, to the\nalready-vetted IP. Every other host fails. This is safe but reduces\nfidelity. Chromium error and certificate pages are detected and discarded.\n* **Playwright adapter**: every request the page makes is intercepted and\nvetted with the same rules before it is allowed. Residual risks:\nWebSocket connections are not intercepted by Playwright routing, and the\nbrowser's own DNS resolution happens after the check (rebinding window).\nUse the HTTP mode if that matters to you.",
-   "markdown": "# Security model: Optional browser rendering: known limitations\n\n* **Termux/Chromium adapter** (`--dump-dom`): Chromium's resolver is pinned with `--host-resolver-rules` so only the page's own host resolves, to the already-vetted IP. Every other host fails. This is safe but reduces fidelity. Chromium error and certificate pages are detected and discarded. * **Playwright adapter**: every request the page makes is intercepted and vetted with the same rules before it is allowed. Residual risks: WebSocket connections are not intercepted by Playwright routing, and the browser's own DNS resolution happens after the check (rebinding window). Use the HTTP mode if that matters to you.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/security/",
-   "elapsed_ms": 0,
-   "bytes": 810,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/security/not-implemented-in-v1",
-   "final_url": "https://docs.chromaspider.test/security/not-implemented-in-v1",
-   "title": "Security model: Not implemented in V1",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Security model: Not implemented in V1\nSecurity model: Not implemented in V1\n* `robots.txt` is **not** consulted yet. Crawl politely and only sites you\nare allowed to crawl.\n* No authentication or rate limiting on the local API beyond the\nconcurrent-crawl cap.",
-   "markdown": "# Security model: Not implemented in V1\n\n* `robots.txt` is **not** consulted yet. Crawl politely and only sites you are allowed to crawl. * No authentication or rate limiting on the local API beyond the concurrent-crawl cap.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/security/",
-   "elapsed_ms": 0,
-   "bytes": 301,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/android/1-install-termux",
-   "final_url": "https://docs.chromaspider.test/android/1-install-termux",
-   "title": "Chromaspider on Android (Termux): 1. Install Termux",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Chromaspider on Android (Termux): 1. Install Termux\nChromaspider on Android (Termux): 1. Install Termux\nInstall Termux from **F-Droid** or the official GitHub releases. The Play\nStore build is outdated.",
-   "markdown": "# Chromaspider on Android (Termux): 1. Install Termux\n\nInstall Termux from **F-Droid** or the official GitHub releases. The Play Store build is outdated.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/android/",
-   "elapsed_ms": 0,
-   "bytes": 240,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/android/2-install",
-   "final_url": "https://docs.chromaspider.test/android/2-install",
-   "title": "Chromaspider on Android (Termux): 2. Install",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Chromaspider on Android (Termux): 2. Install\nChromaspider on Android (Termux): 2. Install\n```sh\npkg update\npkg install python git rust\ngit clone https://github.com/0xSneaks/chromaspider\ncd chromaspider\npip install -e .\n```\nThe first `pip install` may take several minutes while it compiles\n`pydantic-core`. That is normal.",
-   "markdown": "# Chromaspider on Android (Termux): 2. Install\n\n```sh pkg update pkg install python git rust git clone https://github.com/0xSneaks/chromaspider cd chromaspider pip install -e . ```\n\n\n\nThe first `pip install` may take several minutes while it compiles `pydantic-core`. That is normal.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/android/",
-   "elapsed_ms": 0,
-   "bytes": 366,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/android/3-run",
-   "final_url": "https://docs.chromaspider.test/android/3-run",
-   "title": "Chromaspider on Android (Termux): 3. Run",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Chromaspider on Android (Termux): 3. Run\nChromaspider on Android (Termux): 3. Run\n```sh\nchromaspider doctor # shows termux: True, parser, browser backends\nchromaspider serve\n```\nThen open **http://127.0.0.1:8788** in Chrome on the same phone.\nKeep Termux in the foreground, or run `termux-wake-lock` first so Android\ndoes not suspend the server. Stop it with `Ctrl+C`.\nCLI crawl straight from Termux:\n```sh\nchromaspider crawl https://example.com --depth 1 --max-pages 10 --output markdown --out example.md\n```",
-   "markdown": "# Chromaspider on Android (Termux): 3. Run\n\n```sh chromaspider doctor # shows termux: True, parser, browser backends chromaspider serve ```\n\n\n\nThen open **http://127.0.0.1:8788** in Chrome on the same phone.\n\n\n\nKeep Termux in the foreground, or run `termux-wake-lock` first so Android does not suspend the server. Stop it with `Ctrl+C`.\n\n\n\nCLI crawl straight from Termux:\n\n\n\n```sh chromaspider crawl https://example.com --depth 1 --max-pages 10 --output markdown --out example.md ```",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/android/",
-   "elapsed_ms": 0,
-   "bytes": 575,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/android/troubleshooting",
-   "final_url": "https://docs.chromaspider.test/android/troubleshooting",
-   "title": "Chromaspider on Android (Termux): Troubleshooting",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Chromaspider on Android (Termux): Troubleshooting\nChromaspider on Android (Termux): Troubleshooting\n| Symptom | Fix |\n| --- | --- |\n| `error: can't find Rust compiler` while installing | `pkg install rust`, then rerun `pip install -e .` |\n| `Failed to determine Android API level` (maturin) | `export ANDROID_API_LEVEL=$(getprop ro.build.version.sdk)` then rerun |\n| linker errors while building | `pkg install binutils` then rerun |\n| `chromaspider: command not found` | `python -m chromaspider serve` |\n| page does not load in Chrome | make sure the URL is `http://127.0.0.1:8788` (not https) and Termux is still running |\n| port in use | `chromaspider serve --port 8790` |\nOptional, faster HTML parsing: `pkg install libxml2 libxslt` then\n`pip install lxml`. If it fails, skip it; nothing depends on it.",
-   "markdown": "# Chromaspider on Android (Termux): Troubleshooting\n\n| Symptom | Fix | | --- | --- | | `error: can't find Rust compiler` while installing | `pkg install rust`, then rerun `pip install -e .` | | `Failed to determine Android API level` (maturin) | `export ANDROID_API_LEVEL=$(getprop ro.build.version.sdk)` then rerun | | linker errors while building | `pkg install binutils` then rerun | | `chromaspider: command not found` | `python -m chromaspider serve` | | page does not load in Chrome | make sure the URL is `http://127.0.0.1:8788` (not https) and Termux is still running | | port in use | `chromaspider serve --port 8790` |\n\nOptional, faster HTML parsing: `pkg install libxml2 libxslt` then `pip install lxml`. If it fails, skip it; nothing depends on it.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/android/",
-   "elapsed_ms": 0,
-   "bytes": 855,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/android/optional-javascript-rendering-experiment",
-   "final_url": "https://docs.chromaspider.test/android/optional-javascript-rendering-experiment",
-   "title": "Chromaspider on Android (Termux): Optional: JavaScript rendering (experimental)",
-   "status": 200,
-   "content_type": "text/html; charset=utf-8",
-   "text": "Chromaspider on Android (Termux): Optional: JavaScript rendering (experimental)\nChromaspider on Android (Termux): Optional: JavaScript rendering (experimental)\nNot needed for normal crawling. If you install Chromium in Termux (for\nexample `pkg install x11-repo && pkg install chromium`, if your Termux\nrepos provide it), Chromaspider detects it and can use\n`chromium --headless --dump-dom`. Select **Rendering → Browser** in the UI\nor pass `--render browser`.\n* This path is **experimental and untested on Android**.\n* For safety, Chromium may only resolve the page's own host, pinned to the IP\nChromaspider already vetted. Third-party scripts and CDNs will not load, so\nsome sites will render incompletely.\n* If Chromium is missing, crashes, times out or shows an error page, the page\nis crawled over plain HTTP and marked `render_mode: \"http\"` with a\n`render_note` explaining why. A crawl never fails because of this.\nPoint at a specific binary with `export CHROMASPIDER_CHROMIUM=/path/to/chromium`.",
-   "markdown": "# Chromaspider on Android (Termux): Optional: JavaScript rendering (experimental)\n\nNot needed for normal crawling. If you install Chromium in Termux (for example `pkg install x11-repo && pkg install chromium`, if your Termux repos provide it), Chromaspider detects it and can use `chromium --headless --dump-dom`. Select **Rendering → Browser** in the UI or pass `--render browser`.\n\n* This path is **experimental and untested on Android**. * For safety, Chromium may only resolve the page's own host, pinned to the IP Chromaspider already vetted. Third-party scripts and CDNs will not load, so some sites will render incompletely. * If Chromium is missing, crashes, times out or shows an error page, the page is crawled over plain HTTP and marked `render_mode: \"http\"` with a `render_note` explaining why. A crawl never fails because of this.\n\nPoint at a specific binary with `export CHROMASPIDER_CHROMIUM=/path/to/chromium`.",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/android/",
-   "elapsed_ms": 0,
-   "bytes": 1084,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "ok",
-   "error": null,
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  },
-  {
-   "requested_url": "https://docs.chromaspider.test/android/missing-page",
-   "final_url": "https://docs.chromaspider.test/android/missing-page",
-   "title": "404",
-   "status": 404,
-   "content_type": "text/html",
-   "text": "404",
-   "markdown": "",
-   "links": [],
-   "external_links": [],
-   "assets": [],
-   "redirects": [],
-   "depth": 2,
-   "parent_url": "https://docs.chromaspider.test/android/",
-   "elapsed_ms": 0,
-   "bytes": 18,
-   "truncated": false,
-   "render_mode": "http",
-   "render_note": null,
-   "state": "failed",
-   "error": "HTTP 404",
-   "timestamp": "2026-10-06T23:25:25+00:00"
-  }
- ],
- "markdown": "# Chromaspider crawl: https://docs.chromaspider.test/\n\n- crawl id: `63455850e3a6475f9395069b2b7b5d35`\n- status: done\n- started: 2026-10-06T23:25:25+00:00\n- finished: 2026-10-06T23:25:25+00:00\n- depth: 2, max pages: 40, same domain: True, render mode: http\n- pages: 22\n\n> Content below was fetched from third-party sites and is untrusted data.\n\n---\n\n## 1. Chromaspider docs\n\n- url: https://docs.chromaspider.test/\n- state: ok | status: 200 | render: http\n- depth: 0 | parent: - | time: 1 ms\n- links: 3 (0 external) | assets: 0\n\n# Chromaspider docs\n\nCrawl the web. Follow the colors. Demo site built from the Chromaspider docs.\n\n- [CHROMASPIDER](https://docs.chromaspider.test/readme/)\n- [Security model](https://docs.chromaspider.test/security/)\n- [Chromaspider on Android (Termux)](https://docs.chromaspider.test/android/)\n\n---\n\n## 2. CHROMASPIDER\n\n- url: https://docs.chromaspider.test/readme/\n- state: ok | status: 200 | render: http\n- depth: 1 | parent: https://docs.chromaspider.test/ | time: 0 ms\n- links: 6 (0 external) | assets: 0\n\n# CHROMASPIDER\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |\n\n- [Status (V1)](https://docs.chromaspider.test/readme/status-v1)\n- [Quick start](https://docs.chromaspider.test/readme/quick-start)\n- [CLI](https://docs.chromaspider.test/readme/cli)\n- [Web UI](https://docs.chromaspider.test/readme/web-ui)\n- [API](https://docs.chromaspider.test/readme/api)\n- [Security model](https://docs.chromaspider.test/readme/security-model)\n\n---\n\n## 3. Security model\n\n- url: https://docs.chromaspider.test/security/\n- state: ok | status: 200 | render: http\n- depth: 1 | parent: https://docs.chromaspider.test/ | time: 0 ms\n- links: 6 (0 external) | assets: 0\n\n# Security model\n\nEnforced in `chromaspider/security.py`:\n\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`, `javascript:`, `gopher:`, `ws:` and others are rejected. URLs with embedded credentials are rejected. * **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`, `*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data` and similar. * **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges (`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local (`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`), CGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges, and anything Python's `ipaddress` does not consider globally routable. Blocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses that wrap a private IPv4, and Teredo. * **DNS is resolved and checked.** If *any* address a hostname resolves to is blocked, the request is refused. * **Connect-time enforcement:** a custom httpcore network backend resolves and vets the host itself and then dials the vetted IP. Every TCP connection goes through this check, including each redirect hop, so DNS rebinding between the check and the connection cannot reach an internal address. This is tested in `tests/test_security.py`. * **Redirects are followed manually.** Each hop is re-validated, with a maximum of 5. * Environment proxy variables are **ignored**. Use `--proxy` to set one explicitly. With a proxy, the proxy endpoint itself is trusted, and the target hostname is still resolved and vetted locally before each request.\n\n`--allow-private` turns these destination rules off. Use it only to crawl your own local test servers.\n\n- [Network destination rules (SSRF)](https://docs.chromaspider.test/security/network-destination-rules-ssrf)\n- [Resource limits](https://docs.chromaspider.test/security/resource-limits)\n- [Content handling](https://docs.chromaspider.test/security/content-handling)\n- [Local server](https://docs.chromaspider.test/security/local-server)\n- [Optional browser rendering: known limitations](https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat)\n- [Not implemented in V1](https://docs.chromaspider.test/security/not-implemented-in-v1)\n\n---\n\n## 4. Chromaspider on Android (Termux)\n\n- url: https://docs.chromaspider.test/android/\n- state: ok | status: 200 | render: http\n- depth: 1 | parent: https://docs.chromaspider.test/ | time: 0 ms\n- links: 6 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux)\n\nInstall Termux from **F-Droid** or the official GitHub releases. The Play Store build is outdated.\n\n- [1. Install Termux](https://docs.chromaspider.test/android/1-install-termux)\n- [2. Install](https://docs.chromaspider.test/android/2-install)\n- [3. Run](https://docs.chromaspider.test/android/3-run)\n- [Troubleshooting](https://docs.chromaspider.test/android/troubleshooting)\n- [Optional: JavaScript rendering (experimental)](https://docs.chromaspider.test/android/optional-javascript-rendering-experiment)\n- [Old install guide](https://docs.chromaspider.test/android/missing-page)\n\n---\n\n## 5. CHROMASPIDER: Status (V1)\n\n- url: https://docs.chromaspider.test/readme/status-v1\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Status (V1)\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |\n\n---\n\n## 6. CHROMASPIDER: Quick start\n\n- url: https://docs.chromaspider.test/readme/quick-start\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Quick start\n\n### Desktop (Linux / macOS / Windows)\n\n```sh git clone https://github.com/0xSneaks/chromaspider cd chromaspider python -m venv .venv && . .venv/bin/activate # Windows: .venv\\Scripts\\activate pip install -e . chromaspider serve ```\n\n\n\nOpen **http://127.0.0.1:8788**, paste a URL and press **CRAWL**.\n\n\n\n### Android / Termux\n\n\n\n```sh pkg update pkg install python git rust git clone https://github.com/0xSneaks/chromaspider cd chromaspider pip install -e . chromaspider serve ```\n\nThen open **http://127.0.0.1:8788** in Chrome on the phone. `rust` is needed because `pydantic-core` has no Android wheel. Full guide and troubleshooting: [ANDROID.md](ANDROID.md).\n\n---\n\n## 7. CHROMASPIDER: CLI\n\n- url: https://docs.chromaspider.test/readme/cli\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: CLI\n\n```sh chromaspider crawl https://example.com # JSON to stdout chromaspider crawl https://example.com --output markdown --out site.md chromaspider crawl https://example.com \\ --depth 2 \\ --max-pages 25 \\ --same-domain \\ --output json chromaspider crawl https://example.com --no-same-domain --concurrency 8 --timeout 15 chromaspider crawl https://example.com --render auto # use a browser if one is installed chromaspider serve --port 8788 chromaspider doctor # platform + optional backends ```\n\n\n\n| Option | Default | Notes | | --- | --- | --- | | `--depth` | 1 | 0 to 5. 0 means the start page only | | `--max-pages` | 20 | 1 to 500 | | `--same-domain` / `--no-same-domain` | on | `www.` is treated as the same host | | `--output` | json | `json` or `markdown` | | `--timeout` | 10 | seconds, total per page including redirects | | `--concurrency` | 4 | 1 to 16 | | `--render` | http | `http`, `auto` or `browser` (always falls back to HTTP) | | `--max-bytes` | 5000000 | larger bodies are truncated and flagged | | `--proxy` | none | explicit http(s) proxy; env proxies are ignored | | `--save` | off | also store in `~/.chromaspider/crawls` |\n\n\n\nProgress goes to stderr in color (`NO_COLOR=1` disables color). Output goes to stdout or `--out`.\n\n\n\n### What each page records\n\n\n\n`requested_url`, `final_url`, `title`, `status`, `content_type`, `text`, `markdown`, `links`, `external_links`, `assets` (images, scripts, stylesheets, icons, media), `redirects`, `depth`, `parent_url`, `elapsed_ms`, `bytes`, `truncated`, `render_mode` (`http` or `browser`), `render_note`, `state`, `error`, `timestamp`.\n\n\n\nURLs are normalized before deduplication. Scheme and host are lowercased, IDNA-encoded, default ports, fragments and dot-segments are removed, and query parameters are sorted.\n\n---\n\n## 8. CHROMASPIDER: Web UI\n\n- url: https://docs.chromaspider.test/readme/web-ui\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Web UI\n\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from the page's extracted text as plain text. Stick spiders walk over the words and highlight the ones they \"read\". They multiply as pages arrive, then fade out when the crawl is done. The counter bar shows SPIDERS, PAGES and WORDS READ. Only PAGES is a crawl figure; the other two describe the animation. Tap a tile to inspect that page. With reduced motion turned on, the tiles appear at once and no spiders are shown.\n\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n\n[Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in headless Chromium at iPhone 13 size against a local mock site.\n\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page, and each line runs from parent to child.\n\n| Color | Meaning | | --- | --- | | 🟢 green | extracted successfully | | 🔵 cyan | crawling now | | 🟣 violet | rendered with a browser | | 🟡 yellow | skipped (non-HTML content, not parsed) | | 🟠 orange | reached via redirect | | 🔴 red | failed or blocked |\n\nTap a node to see its URL, title, status, timing, metadata, extracted Markdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**, **DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl, plus per-page copy buttons. The layout is mobile-first.\n\n---\n\n## 9. CHROMASPIDER: API\n\n- url: https://docs.chromaspider.test/readme/api\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: API\n\n| Method | Path | | | --- | --- | --- | | `POST` | `/api/crawl` | start a crawl, returns `{\"id\": ...}` (202) | | `GET` | `/api/crawls/{id}` | full record with all pages | | `GET` | `/api/crawls/{id}/graph` | nodes, edges, state counts | | `GET` | `/api/crawls/{id}/pages/{n}` | one page | | `GET` | `/api/crawls/{id}/export?format=json` | download JSON | | `GET` | `/api/crawls/{id}/export?format=markdown` | download Markdown | | `GET` | `/api/health` | version and browser backend status | | `GET` | `/api/docs` | interactive OpenAPI docs |\n\n```sh curl -s -X POST http://127.0.0.1:8788/api/crawl \\ -H 'Content-Type: application/json' \\ -d '{\"url\": \"https://example.com\", \"depth\": 2, \"max_pages\": 20, \"same_domain\": true}' # {\"id\":\"3f2c...\",\"status\":\"running\"}\n\n\n\ncurl -s \"http://127.0.0.1:8788/api/crawls/3f2c.../export?format=markdown\" ```\n\n\n\nOptional body fields: `render_mode` (`http`, `auto` or `browser`), `timeout`, `concurrency`. Invalid input returns 422, and blocked targets return 400 with the reason. See [`examples/api_crawl.sh`](examples/api_crawl.sh) and [`examples/library.py`](examples/library.py).\n\n\n\nCrawls are kept in memory and saved as JSON files in `~/.chromaspider/crawls` (override with `CHROMASPIDER_DATA`). No database server is used.\n\n---\n\n## 10. CHROMASPIDER: Security model\n\n- url: https://docs.chromaspider.test/readme/security-model\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Security model\n\nShort version (details in [SECURITY.md](SECURITY.md)):\n\n* Only `http` and `https`. Localhost, `127.0.0.0/8`, `::1`, private IPv4 and IPv6 ranges, link-local, CGNAT and cloud metadata endpoints are blocked by default. * DNS is resolved and every resulting IP is checked. The check is enforced again **at connect time** in a custom network backend, so redirects and DNS rebinding cannot slip through. Every redirect hop is re-validated. * Hard limits cover depth, pages, concurrency, timeout, response bytes and redirects. * Crawled content is never executed, is rendered in the UI as text only, and is never sent to an LLM. * The local server binds to `127.0.0.1`, checks the `Host` header and only accepts same-origin JSON POSTs.\n\n`--allow-private` disables the destination rules, for crawling your own local test sites only.\n\n---\n\n## 11. Security model: Network destination rules (SSRF)\n\n- url: https://docs.chromaspider.test/security/network-destination-rules-ssrf\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Network destination rules (SSRF)\n\nEnforced in `chromaspider/security.py`:\n\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`, `javascript:`, `gopher:`, `ws:` and others are rejected. URLs with embedded credentials are rejected. * **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`, `*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data` and similar. * **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges (`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local (`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`), CGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges, and anything Python's `ipaddress` does not consider globally routable. Blocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses that wrap a private IPv4, and Teredo. * **DNS is resolved and checked.** If *any* address a hostname resolves to is blocked, the request is refused. * **Connect-time enforcement:** a custom httpcore network backend resolves and vets the host itself and then dials the vetted IP. Every TCP connection goes through this check, including each redirect hop, so DNS rebinding between the check and the connection cannot reach an internal address. This is tested in `tests/test_security.py`. * **Redirects are followed manually.** Each hop is re-validated, with a maximum of 5. * Environment proxy variables are **ignored**. Use `--proxy` to set one explicitly. With a proxy, the proxy endpoint itself is trusted, and the target hostname is still resolved and vetted locally before each request.\n\n`--allow-private` turns these destination rules off. Use it only to crawl your own local test servers.\n\n---\n\n## 12. Security model: Resource limits\n\n- url: https://docs.chromaspider.test/security/resource-limits\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Resource limits\n\n| Limit | Default | Hard max | | --- | --- | --- | | depth | 1 | 5 | | pages per crawl | 20 | 500 | | concurrency | 4 | 16 | | request timeout (total per page, incl. redirects) | 10 s | 60 s | | response body | 5 MB (truncated, flagged `truncated: true`) | CLI `--max-bytes` | | redirects | 5 | - | | simultaneous crawls via API | 2 | - |\n\n---\n\n## 13. Security model: Content handling\n\n- url: https://docs.chromaspider.test/security/content-handling\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Content handling\n\n* Crawled content is **never executed**. HTML is parsed with BeautifulSoup. `script`, `style`, `iframe`, `object`, `embed`, `svg`, `form` and similar are removed before text and Markdown are produced. * The web UI renders all crawled data with `textContent`, never `innerHTML`, and serves a strict Content-Security-Policy (`script-src 'self'`, no inline script, `frame-ancestors 'none'`). * Crawled content is **not sent to any LLM or external API**. Markdown exports carry a note that the content is untrusted. Treat it as data, not instructions, if you feed it to an agent.\n\n---\n\n## 14. Security model: Local server\n\n- url: https://docs.chromaspider.test/security/local-server\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Local server\n\n* `chromaspider serve` binds to `127.0.0.1` by default. * The `Host` header must be `127.0.0.1`, `localhost` or `::1`. This blocks DNS-rebinding attacks from web pages against the local API. * `POST` requires `Content-Type: application/json` and a same-origin `Origin`, so other websites open in your browser cannot start crawls. * There is **no authentication**. Do not expose the server to a network (`--host 0.0.0.0`) unless you understand that anyone who can reach it can use it.\n\n---\n\n## 15. Security model: Optional browser rendering: known limitations\n\n- url: https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Optional browser rendering: known limitations\n\n* **Termux/Chromium adapter** (`--dump-dom`): Chromium's resolver is pinned with `--host-resolver-rules` so only the page's own host resolves, to the already-vetted IP. Every other host fails. This is safe but reduces fidelity. Chromium error and certificate pages are detected and discarded. * **Playwright adapter**: every request the page makes is intercepted and vetted with the same rules before it is allowed. Residual risks: WebSocket connections are not intercepted by Playwright routing, and the browser's own DNS resolution happens after the check (rebinding window). Use the HTTP mode if that matters to you.\n\n---\n\n## 16. Security model: Not implemented in V1\n\n- url: https://docs.chromaspider.test/security/not-implemented-in-v1\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Not implemented in V1\n\n* `robots.txt` is **not** consulted yet. Crawl politely and only sites you are allowed to crawl. * No authentication or rate limiting on the local API beyond the concurrent-crawl cap.\n\n---\n\n## 17. Chromaspider on Android (Termux): 1. Install Termux\n\n- url: https://docs.chromaspider.test/android/1-install-termux\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): 1. Install Termux\n\nInstall Termux from **F-Droid** or the official GitHub releases. The Play Store build is outdated.\n\n---\n\n## 18. Chromaspider on Android (Termux): 2. Install\n\n- url: https://docs.chromaspider.test/android/2-install\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): 2. Install\n\n```sh pkg update pkg install python git rust git clone https://github.com/0xSneaks/chromaspider cd chromaspider pip install -e . ```\n\n\n\nThe first `pip install` may take several minutes while it compiles `pydantic-core`. That is normal.\n\n---\n\n## 19. Chromaspider on Android (Termux): 3. Run\n\n- url: https://docs.chromaspider.test/android/3-run\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): 3. Run\n\n```sh chromaspider doctor # shows termux: True, parser, browser backends chromaspider serve ```\n\n\n\nThen open **http://127.0.0.1:8788** in Chrome on the same phone.\n\n\n\nKeep Termux in the foreground, or run `termux-wake-lock` first so Android does not suspend the server. Stop it with `Ctrl+C`.\n\n\n\nCLI crawl straight from Termux:\n\n\n\n```sh chromaspider crawl https://example.com --depth 1 --max-pages 10 --output markdown --out example.md ```\n\n---\n\n## 20. Chromaspider on Android (Termux): Troubleshooting\n\n- url: https://docs.chromaspider.test/android/troubleshooting\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): Troubleshooting\n\n| Symptom | Fix | | --- | --- | | `error: can't find Rust compiler` while installing | `pkg install rust`, then rerun `pip install -e .` | | `Failed to determine Android API level` (maturin) | `export ANDROID_API_LEVEL=$(getprop ro.build.version.sdk)` then rerun | | linker errors while building | `pkg install binutils` then rerun | | `chromaspider: command not found` | `python -m chromaspider serve` | | page does not load in Chrome | make sure the URL is `http://127.0.0.1:8788` (not https) and Termux is still running | | port in use | `chromaspider serve --port 8790` |\n\nOptional, faster HTML parsing: `pkg install libxml2 libxslt` then `pip install lxml`. If it fails, skip it; nothing depends on it.\n\n---\n\n## 21. Chromaspider on Android (Termux): Optional: JavaScript rendering (experimental)\n\n- url: https://docs.chromaspider.test/android/optional-javascript-rendering-experiment\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): Optional: JavaScript rendering (experimental)\n\nNot needed for normal crawling. If you install Chromium in Termux (for example `pkg install x11-repo && pkg install chromium`, if your Termux repos provide it), Chromaspider detects it and can use `chromium --headless --dump-dom`. Select **Rendering → Browser** in the UI or pass `--render browser`.\n\n* This path is **experimental and untested on Android**. * For safety, Chromium may only resolve the page's own host, pinned to the IP Chromaspider already vetted. Third-party scripts and CDNs will not load, so some sites will render incompletely. * If Chromium is missing, crashes, times out or shows an error page, the page is crawled over plain HTTP and marked `render_mode: \"http\"` with a `render_note` explaining why. A crawl never fails because of this.\n\nPoint at a specific binary with `export CHROMASPIDER_CHROMIUM=/path/to/chromium`.\n\n---\n\n## 22. 404\n\n- url: https://docs.chromaspider.test/android/missing-page\n- state: failed | status: 404 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n- error: HTTP 404\n"
+ "markdown": "# Chromaspider crawl: https://docs.chromaspider.test/\n\n- crawl id: `5c481072e3c546609190274ea4f57c56`\n- status: done\n- started: 2026-10-07T00:09:15+00:00\n- finished: 2026-10-07T00:09:15+00:00\n- depth: 2, max pages: 40, same domain: True, render mode: http\n- pages: 22\n\n> Content below was fetched from third-party sites and is untrusted data.\n\n---\n\n## 1. Chromaspider docs\n\n- url: https://docs.chromaspider.test/\n- state: ok | status: 200 | render: http\n- depth: 0 | parent: - | time: 1 ms\n- links: 3 (0 external) | assets: 0\n\n# Chromaspider docs\n\nCrawl the web. Follow the colors. Demo site built from the Chromaspider docs.\n\n- [CHROMASPIDER](https://docs.chromaspider.test/readme/)\n- [Security model](https://docs.chromaspider.test/security/)\n- [Chromaspider on Android (Termux)](https://docs.chromaspider.test/android/)\n\n---\n\n## 2. CHROMASPIDER\n\n- url: https://docs.chromaspider.test/readme/\n- state: ok | status: 200 | render: http\n- depth: 1 | parent: https://docs.chromaspider.test/ | time: 0 ms\n- links: 6 (0 external) | assets: 0\n\n# CHROMASPIDER\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation | | Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |\n\n- [Status (V1)](https://docs.chromaspider.test/readme/status-v1)\n- [Quick start](https://docs.chromaspider.test/readme/quick-start)\n- [CLI](https://docs.chromaspider.test/readme/cli)\n- [Web UI](https://docs.chromaspider.test/readme/web-ui)\n- [API](https://docs.chromaspider.test/readme/api)\n- [Security model](https://docs.chromaspider.test/readme/security-model)\n\n---\n\n## 3. Security model\n\n- url: https://docs.chromaspider.test/security/\n- state: ok | status: 200 | render: http\n- depth: 1 | parent: https://docs.chromaspider.test/ | time: 0 ms\n- links: 6 (0 external) | assets: 0\n\n# Security model\n\nEnforced in `chromaspider/security.py`:\n\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`, `javascript:`, `gopher:`, `ws:` and others are rejected. URLs with embedded credentials are rejected. * **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`, `*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data` and similar. * **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges (`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local (`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`), CGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges, and anything Python's `ipaddress` does not consider globally routable. Blocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses that wrap a private IPv4, and Teredo. * **DNS is resolved and checked.** If *any* address a hostname resolves to is blocked, the request is refused. * **Connect-time enforcement:** a custom httpcore network backend resolves and vets the host itself and then dials the vetted IP. Every TCP connection goes through this check, including each redirect hop, so DNS rebinding between the check and the connection cannot reach an internal address. This is tested in `tests/test_security.py`. * **Redirects are followed manually.** Each hop is re-validated, with a maximum of 5. * Environment proxy variables are **ignored**. Use `--proxy` to set one explicitly. With a proxy, the proxy endpoint itself is trusted, and the target hostname is still resolved and vetted locally before each request.\n\n`--allow-private` turns these destination rules off. Use it only to crawl your own local test servers.\n\n- [Network destination rules (SSRF)](https://docs.chromaspider.test/security/network-destination-rules-ssrf)\n- [Resource limits](https://docs.chromaspider.test/security/resource-limits)\n- [Content handling](https://docs.chromaspider.test/security/content-handling)\n- [Local server](https://docs.chromaspider.test/security/local-server)\n- [Optional browser rendering: known limitations](https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat)\n- [Not implemented in V1](https://docs.chromaspider.test/security/not-implemented-in-v1)\n\n---\n\n## 4. Chromaspider on Android (Termux)\n\n- url: https://docs.chromaspider.test/android/\n- state: ok | status: 200 | render: http\n- depth: 1 | parent: https://docs.chromaspider.test/ | time: 0 ms\n- links: 6 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux)\n\nInstall Termux from **F-Droid** or the official GitHub releases. The Play Store build is outdated.\n\n- [1. Install Termux](https://docs.chromaspider.test/android/1-install-termux)\n- [2. Install](https://docs.chromaspider.test/android/2-install)\n- [3. Run](https://docs.chromaspider.test/android/3-run)\n- [Troubleshooting](https://docs.chromaspider.test/android/troubleshooting)\n- [Optional: JavaScript rendering (experimental)](https://docs.chromaspider.test/android/optional-javascript-rendering-experiment)\n- [Old install guide](https://docs.chromaspider.test/android/missing-page)\n\n---\n\n## 5. CHROMASPIDER: Status (V1)\n\n- url: https://docs.chromaspider.test/readme/status-v1\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Status (V1)\n\n| Area | State | | --- | --- | | HTTP crawler, CLI, API, web UI | working, tested | | JSON / Markdown export | working, tested | | Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation | | Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) | | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) | | Desktop Linux | verified (clean venv install, tests, live crawl) | | macOS / Windows | expected to work (pure Python), **not tested** | | Android / Termux | **not verified on a device**; see [ANDROID.md](ANDROID.md) | | Browser rendering (Playwright / Chromium) | optional, **experimental**; see below | | robots.txt | **not implemented yet** | | MCP adapter | not included in V1 |\n\n---\n\n## 6. CHROMASPIDER: Quick start\n\n- url: https://docs.chromaspider.test/readme/quick-start\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Quick start\n\n### Desktop (Linux / macOS / Windows)\n\n```sh git clone https://github.com/0xSneaks/chromaspider cd chromaspider python -m venv .venv && . .venv/bin/activate # Windows: .venv\\Scripts\\activate pip install -e . chromaspider serve ```\n\n\n\nOpen **http://127.0.0.1:8788**, paste a URL and press **CRAWL**.\n\n\n\n### Android / Termux\n\n\n\n```sh pkg update pkg install python git rust git clone https://github.com/0xSneaks/chromaspider cd chromaspider pip install -e . chromaspider serve ```\n\nThen open **http://127.0.0.1:8788** in Chrome on the phone. `rust` is needed because `pydantic-core` has no Android wheel. Full guide and troubleshooting: [ANDROID.md](ANDROID.md).\n\n---\n\n## 7. CHROMASPIDER: CLI\n\n- url: https://docs.chromaspider.test/readme/cli\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: CLI\n\n```sh chromaspider crawl https://example.com # JSON to stdout chromaspider crawl https://example.com --output markdown --out site.md chromaspider crawl https://example.com \\ --depth 2 \\ --max-pages 25 \\ --same-domain \\ --output json chromaspider crawl https://example.com --no-same-domain --concurrency 8 --timeout 15 chromaspider crawl https://example.com --render auto # use a browser if one is installed chromaspider serve --port 8788 chromaspider doctor # platform + optional backends ```\n\n\n\n| Option | Default | Notes | | --- | --- | --- | | `--depth` | 1 | 0 to 5. 0 means the start page only | | `--max-pages` | 20 | 1 to 500 | | `--same-domain` / `--no-same-domain` | on | `www.` is treated as the same host | | `--output` | json | `json` or `markdown` | | `--timeout` | 10 | seconds, total per page including redirects | | `--concurrency` | 4 | 1 to 16 | | `--render` | http | `http`, `auto` or `browser` (always falls back to HTTP) | | `--max-bytes` | 5000000 | larger bodies are truncated and flagged | | `--proxy` | none | explicit http(s) proxy; env proxies are ignored | | `--save` | off | also store in `~/.chromaspider/crawls` |\n\n\n\nProgress goes to stderr in color (`NO_COLOR=1` disables color). Output goes to stdout or `--out`.\n\n\n\n### What each page records\n\n\n\n`requested_url`, `final_url`, `title`, `status`, `content_type`, `text`, `markdown`, `links`, `external_links`, `assets` (images, scripts, stylesheets, icons, media), `redirects`, `depth`, `parent_url`, `elapsed_ms`, `bytes`, `truncated`, `render_mode` (`http` or `browser`), `render_note`, `state`, `error`, `timestamp`.\n\n\n\nURLs are normalized before deduplication. Scheme and host are lowercased, IDNA-encoded, default ports, fragments and dot-segments are removed, and query parameters are sorted.\n\n---\n\n## 8. CHROMASPIDER: Web UI\n\n- url: https://docs.chromaspider.test/readme/web-ui\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Web UI\n\nThe **CRAWL** tab shows one tile per crawled page (up to 12), drawn from the page's extracted text as plain text. Stick spiders walk over the words and highlight the ones they \"read\". They multiply as pages arrive, then fade out when the crawl is done. The counter bar shows SPIDERS, PAGES and WORDS READ. Only PAGES is a crawl figure; the other two describe the animation. Tap a tile to inspect that page. With reduced motion turned on, the tiles appear at once and no spiders are shown.\n\n<img src=\"docs/screenshot-crawl-view.png\" alt=\"Crawl view with spiders on page tiles\" width=\"300\">\n\n**[Try the live demo](https://0xsneaks.github.io/chromaspider/)**. It runs this UI in your browser and replays a recorded crawl of an offline mock site built from these docs. It never crawls anything itself; the site is built from `site/` by `.github/workflows/pages.yml`. [Watch the crawl view recording](docs/crawl-view.mp4). It was recorded in headless Chromium at iPhone 13 size against a local mock site.\n\nThe **GRAPH** tab polls the API while a crawl runs. Each node is a page, and each line runs from parent to child.\n\n| Color | Meaning | | --- | --- | | 🟢 green | extracted successfully | | 🔵 cyan | crawling now | | 🟣 violet | rendered with a browser | | 🟡 yellow | skipped (non-HTML content, not parsed) | | 🟠 orange | reached via redirect | | 🔴 red | failed or blocked |\n\nTap a node to see its URL, title, status, timing, metadata, extracted Markdown and outgoing links. The page has **COPY MARKDOWN**, **COPY JSON**, **DOWNLOAD JSON** and **DOWNLOAD MARKDOWN** buttons for the whole crawl, plus per-page copy buttons. The layout is mobile-first.\n\n---\n\n## 9. CHROMASPIDER: API\n\n- url: https://docs.chromaspider.test/readme/api\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: API\n\n| Method | Path | | | --- | --- | --- | | `POST` | `/api/crawl` | start a crawl, returns `{\"id\": ...}` (202) | | `GET` | `/api/crawls/{id}` | full record with all pages | | `GET` | `/api/crawls/{id}/graph` | nodes, edges, state counts | | `GET` | `/api/crawls/{id}/pages/{n}` | one page | | `GET` | `/api/crawls/{id}/export?format=json` | download JSON | | `GET` | `/api/crawls/{id}/export?format=markdown` | download Markdown | | `GET` | `/api/health` | version and browser backend status | | `GET` | `/api/docs` | interactive OpenAPI docs |\n\n```sh curl -s -X POST http://127.0.0.1:8788/api/crawl \\ -H 'Content-Type: application/json' \\ -d '{\"url\": \"https://example.com\", \"depth\": 2, \"max_pages\": 20, \"same_domain\": true}' # {\"id\":\"3f2c...\",\"status\":\"running\"}\n\n\n\ncurl -s \"http://127.0.0.1:8788/api/crawls/3f2c.../export?format=markdown\" ```\n\n\n\nOptional body fields: `render_mode` (`http`, `auto` or `browser`), `timeout`, `concurrency`. Invalid input returns 422, and blocked targets return 400 with the reason. See [`examples/api_crawl.sh`](examples/api_crawl.sh) and [`examples/library.py`](examples/library.py).\n\n\n\nCrawls are kept in memory and saved as JSON files in `~/.chromaspider/crawls` (override with `CHROMASPIDER_DATA`). No database server is used.\n\n---\n\n## 10. CHROMASPIDER: Security model\n\n- url: https://docs.chromaspider.test/readme/security-model\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/readme/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# CHROMASPIDER: Security model\n\nShort version (details in [SECURITY.md](SECURITY.md)):\n\n* Only `http` and `https`. Localhost, `127.0.0.0/8`, `::1`, private IPv4 and IPv6 ranges, link-local, CGNAT and cloud metadata endpoints are blocked by default. * DNS is resolved and every resulting IP is checked. The check is enforced again **at connect time** in a custom network backend, so redirects and DNS rebinding cannot slip through. Every redirect hop is re-validated. * Hard limits cover depth, pages, concurrency, timeout, response bytes and redirects. * Crawled content is never executed, is rendered in the UI as text only, and is never sent to an LLM. * The local server binds to `127.0.0.1`, checks the `Host` header and only accepts same-origin JSON POSTs.\n\n`--allow-private` disables the destination rules, for crawling your own local test sites only.\n\n---\n\n## 11. Security model: Network destination rules (SSRF)\n\n- url: https://docs.chromaspider.test/security/network-destination-rules-ssrf\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Network destination rules (SSRF)\n\nEnforced in `chromaspider/security.py`:\n\n* **Schemes:** only `http` and `https`. `file:`, `ftp:`, `data:`, `javascript:`, `gopher:`, `ws:` and others are rejected. URLs with embedded credentials are rejected. * **Blocked hostnames:** `localhost`, `*.localhost`, `*.local`, `*.internal`, `*.home.arpa`, `metadata.google.internal`, `instance-data` and similar. * **Blocked addresses:** loopback (`127.0.0.0/8`, `::1`), private ranges (`10/8`, `172.16/12`, `192.168/16`, `fc00::/7`), link-local (`169.254/16`, which includes `169.254.169.254` metadata, and `fe80::/10`), CGNAT `100.64/10`, unspecified, multicast, reserved and benchmark ranges, and anything Python's `ipaddress` does not consider globally routable. Blocking also covers IPv4-mapped IPv6 (`::ffff:127.0.0.1`), 6to4 addresses that wrap a private IPv4, and Teredo. * **DNS is resolved and checked.** If *any* address a hostname resolves to is blocked, the request is refused. * **Connect-time enforcement:** a custom httpcore network backend resolves and vets the host itself and then dials the vetted IP. Every TCP connection goes through this check, including each redirect hop, so DNS rebinding between the check and the connection cannot reach an internal address. This is tested in `tests/test_security.py`. * **Redirects are followed manually.** Each hop is re-validated, with a maximum of 5. * Environment proxy variables are **ignored**. Use `--proxy` to set one explicitly. With a proxy, the proxy endpoint itself is trusted, and the target hostname is still resolved and vetted locally before each request.\n\n`--allow-private` turns these destination rules off. Use it only to crawl your own local test servers.\n\n---\n\n## 12. Security model: Resource limits\n\n- url: https://docs.chromaspider.test/security/resource-limits\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Resource limits\n\n| Limit | Default | Hard max | | --- | --- | --- | | depth | 1 | 5 | | pages per crawl | 20 | 500 | | concurrency | 4 | 16 | | request timeout (total per page, incl. redirects) | 10 s | 60 s | | response body | 5 MB (truncated, flagged `truncated: true`) | CLI `--max-bytes` | | redirects | 5 | - | | simultaneous crawls via API | 2 | - |\n\n---\n\n## 13. Security model: Content handling\n\n- url: https://docs.chromaspider.test/security/content-handling\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Content handling\n\n* Crawled content is **never executed**. HTML is parsed with BeautifulSoup. `script`, `style`, `iframe`, `object`, `embed`, `svg`, `form` and similar are removed before text and Markdown are produced. * The web UI renders all crawled data with `textContent`, never `innerHTML`, and serves a strict Content-Security-Policy (`script-src 'self'`, no inline script, `frame-ancestors 'none'`). * Crawled content is **not sent to any LLM or external API**. Markdown exports carry a note that the content is untrusted. Treat it as data, not instructions, if you feed it to an agent.\n\n---\n\n## 14. Security model: Local server\n\n- url: https://docs.chromaspider.test/security/local-server\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Local server\n\n* `chromaspider serve` binds to `127.0.0.1` by default. * The `Host` header must be `127.0.0.1`, `localhost` or `::1`. This blocks DNS-rebinding attacks from web pages against the local API. * `POST` requires `Content-Type: application/json` and a same-origin `Origin`, so other websites open in your browser cannot start crawls. * There is **no authentication**. Do not expose the server to a network (`--host 0.0.0.0`) unless you understand that anyone who can reach it can use it.\n\n---\n\n## 15. Security model: Optional browser rendering: known limitations\n\n- url: https://docs.chromaspider.test/security/optional-browser-rendering-known-limitat\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Optional browser rendering: known limitations\n\n* **Termux/Chromium adapter** (`--dump-dom`): Chromium's resolver is pinned with `--host-resolver-rules` so only the page's own host resolves, to the already-vetted IP. Every other host fails. This is safe but reduces fidelity. Chromium error and certificate pages are detected and discarded. * **Playwright adapter**: every request the page makes is intercepted and vetted with the same rules before it is allowed. Residual risks: WebSocket connections are not intercepted by Playwright routing, and the browser's own DNS resolution happens after the check (rebinding window). Use the HTTP mode if that matters to you.\n\n---\n\n## 16. Security model: Not implemented in V1\n\n- url: https://docs.chromaspider.test/security/not-implemented-in-v1\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/security/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Security model: Not implemented in V1\n\n* `robots.txt` is **not** consulted yet. Crawl politely and only sites you are allowed to crawl. * No authentication or rate limiting on the local API beyond the concurrent-crawl cap.\n\n---\n\n## 17. Chromaspider on Android (Termux): 1. Install Termux\n\n- url: https://docs.chromaspider.test/android/1-install-termux\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): 1. Install Termux\n\nInstall Termux from **F-Droid** or the official GitHub releases. The Play Store build is outdated.\n\n---\n\n## 18. Chromaspider on Android (Termux): 2. Install\n\n- url: https://docs.chromaspider.test/android/2-install\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): 2. Install\n\n```sh pkg update pkg install python git rust git clone https://github.com/0xSneaks/chromaspider cd chromaspider pip install -e . ```\n\n\n\nThe first `pip install` may take several minutes while it compiles `pydantic-core`. That is normal.\n\n---\n\n## 19. Chromaspider on Android (Termux): 3. Run\n\n- url: https://docs.chromaspider.test/android/3-run\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): 3. Run\n\n```sh chromaspider doctor # shows termux: True, parser, browser backends chromaspider serve ```\n\n\n\nThen open **http://127.0.0.1:8788** in Chrome on the same phone.\n\n\n\nKeep Termux in the foreground, or run `termux-wake-lock` first so Android does not suspend the server. Stop it with `Ctrl+C`.\n\n\n\nCLI crawl straight from Termux:\n\n\n\n```sh chromaspider crawl https://example.com --depth 1 --max-pages 10 --output markdown --out example.md ```\n\n---\n\n## 20. Chromaspider on Android (Termux): Troubleshooting\n\n- url: https://docs.chromaspider.test/android/troubleshooting\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): Troubleshooting\n\n| Symptom | Fix | | --- | --- | | `error: can't find Rust compiler` while installing | `pkg install rust`, then rerun `pip install -e .` | | `Failed to determine Android API level` (maturin) | `export ANDROID_API_LEVEL=$(getprop ro.build.version.sdk)` then rerun | | linker errors while building | `pkg install binutils` then rerun | | `chromaspider: command not found` | `python -m chromaspider serve` | | page does not load in Chrome | make sure the URL is `http://127.0.0.1:8788` (not https) and Termux is still running | | port in use | `chromaspider serve --port 8790` |\n\nOptional, faster HTML parsing: `pkg install libxml2 libxslt` then `pip install lxml`. If it fails, skip it; nothing depends on it.\n\n---\n\n## 21. Chromaspider on Android (Termux): Optional: JavaScript rendering (experimental)\n\n- url: https://docs.chromaspider.test/android/optional-javascript-rendering-experiment\n- state: ok | status: 200 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n\n# Chromaspider on Android (Termux): Optional: JavaScript rendering (experimental)\n\nNot needed for normal crawling. If you install Chromium in Termux (for example `pkg install x11-repo && pkg install chromium`, if your Termux repos provide it), Chromaspider detects it and can use `chromium --headless --dump-dom`. Select **Rendering → Browser** in the UI or pass `--render browser`.\n\n* This path is **experimental and untested on Android**. * For safety, Chromium may only resolve the page's own host, pinned to the IP Chromaspider already vetted. Third-party scripts and CDNs will not load, so some sites will render incompletely. * If Chromium is missing, crashes, times out or shows an error page, the page is crawled over plain HTTP and marked `render_mode: \"http\"` with a `render_note` explaining why. A crawl never fails because of this.\n\nPoint at a specific binary with `export CHROMASPIDER_CHROMIUM=/path/to/chromium`.\n\n---\n\n## 22. 404\n\n- url: https://docs.chromaspider.test/android/missing-page\n- state: failed | status: 404 | render: http\n- depth: 2 | parent: https://docs.chromaspider.test/android/ | time: 0 ms\n- links: 0 (0 external) | assets: 0\n- error: HTTP 404\n"
 }

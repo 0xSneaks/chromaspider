@@ -90,9 +90,10 @@ def main():
             time.sleep(0.05)
         graph = c.get(f"/api/crawls/{cid}/graph").json()
         pages = [c.get(f"/api/crawls/{cid}/pages/{i}").json() for i in range(len(crawl["pages"]))]
+        assert pages == crawl["pages"], "page API should match the crawl record; demo.js serves crawl.pages"
         markdown = c.get(f"/api/crawls/{cid}/export?format=markdown").text
     data = {"note": "Recorded by site/make_demo.py from an offline mock site built from the Chromaspider docs.",
-            "crawl": crawl, "graph": graph, "pages": pages, "markdown": markdown}
+            "crawl": crawl, "graph": graph, "markdown": markdown}
     out.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"wrote {out}: {len(pages)} pages, status {crawl['status']}, counts {graph['counts']}")
 

@@ -10,7 +10,8 @@ const times = D.schedule(graph);
 
 test("recording is a finished crawl with one page record per node", () => {
   assert.equal(graph.status, "done");
-  assert.equal(data.pages.length, graph.nodes.length);
+  assert.equal(data.crawl.pages.length, graph.nodes.length);
+  assert.equal(data.pages, undefined, "pages are stored once, inside crawl");
   graph.nodes.forEach((n, i) => assert.equal(n.id, i));
   for (const e of graph.edges) assert.ok(e.source < e.target, "parents are discovered before children");
   assert.ok(graph.nodes.some((n) => n.state === "failed"), "demo shows a failure color too");
