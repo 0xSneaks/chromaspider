@@ -28,7 +28,7 @@ taken on a real phone.*
 | HTTP crawler, CLI, API, web UI | working, tested |
 | JSON / Markdown export | working, tested |
 | Web UI: spider crawl view + graph | working, tested in mobile Chromium emulation |
-| Live demo (GitHub Pages) | builds and is tested locally; goes live once Pages is enabled ([site/README.md](site/README.md)) |
+| Live demo | live on [Vercel](https://chromaspider.vercel.app) and [GitHub Pages](https://0xsneaks.github.io/chromaspider/); redeploys on every push to `main` ([site/README.md](site/README.md)) |
 | SSRF protection | working, tested (incl. redirect and DNS-rebinding cases) |
 | Desktop Linux | verified (clean venv install, tests, live crawl) |
 | macOS / Windows | expected to work (pure Python), **not tested** |
